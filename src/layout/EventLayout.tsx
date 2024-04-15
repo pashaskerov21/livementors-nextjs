@@ -15,6 +15,7 @@ type LayoutProps = {
 
 const EventLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState<boolean>(true);
     const localeSlugs: LocaleStateType[] = i18n.locales.map((locale) => {
         return {
             locale: locale,
@@ -42,7 +43,8 @@ const EventLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                 banner_translates: response.banner_translates ?? [],
                 events: response.events ?? [],
                 event_translates: response.event_translates ?? [],
-            }))
+            }));
+            setLoading(false)
         }
 
         fetchData();
@@ -50,6 +52,11 @@ const EventLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
 
     return (
         <>
+            {loading && (
+                <div className="preloader">
+                    <div className="preloader-icon"></div>
+                </div>
+            )}
             {dataState.banners.length > 0 && dataState.banner_translates.length > 0 && (
                 <BannerSection
                     activeLocale={activeLocale}

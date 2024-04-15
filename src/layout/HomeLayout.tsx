@@ -15,6 +15,7 @@ type LayoutProps = {
 
 const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     const dispatch = useDispatch();
+    const [loading, setLoading] = useState<boolean>(true);
     const localeSlugs: LocaleStateType[] = i18n.locales.map((locale) => {
         return {
             locale: locale,
@@ -69,7 +70,8 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                 comments: response.comments ?? [],
                 comment_translates: response.comment_translates ?? [],
                 partners: response.partners ?? [],
-            }))
+            }));
+            setLoading(false);
         }
 
         fetchData();
@@ -77,6 +79,11 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
 
     return (
         <>
+            {loading && (
+                <div className="preloader">
+                    <div className="preloader-icon"></div>
+                </div>
+            )}
             {dataState.banners.length > 0 && dataState.banner_translates.length > 0 && (
                 <BannerSection
                     activeLocale={activeLocale}

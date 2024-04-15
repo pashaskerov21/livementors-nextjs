@@ -15,6 +15,7 @@ type LayoutProps = {
 
 const AboutLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState<boolean>(true);
   const localeSlugs: LocaleStateType[] = i18n.locales.map((locale) => {
     return {
       locale: locale,
@@ -56,13 +57,19 @@ const AboutLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
         commite_translates: response.commite_translates ?? [],
         commite_members: response.commite_members ?? [],
         commite_member_translates: response.commite_member_translates ?? [],
-      }))
+      }));
+      setLoading(false);
     }
 
     fetchData();
   }, []);
   return (
     <>
+      {loading && (
+        <div className="preloader">
+          <div className="preloader-icon"></div>
+        </div>
+      )}
       {dataState.banners.length > 0 && dataState.banner_translates.length > 0 && (
         <BannerSection
           activeLocale={activeLocale}

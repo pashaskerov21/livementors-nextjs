@@ -453,34 +453,72 @@
             color: #fff;
             font-size: 30px;
             border: 1px solid #fff;
-            img{
+
+            img {
                 width: 30px;
                 height: 30px;
                 object-fit: contain;
             }
-            svg,img{
+
+            svg,
+            img {
                 transition: all 0.3s;
             }
-            &:hover{
-                svg,img{
+
+            &:hover {
+
+                svg,
+                img {
                     transform: scale(0.8);
                 }
             }
-            &.wp{
+
+            &.wp {
                 background-color: #25d366;
             }
-            &.msg{
+
+            &.msg {
                 background-color: #ff6a00;
             }
-            &.tg{
+
+            &.tg {
                 background-color: #0088cc;
             }
         }
     }
 }
-@keyframes toolbaricons{
-    100%{
+
+@keyframes toolbaricons {
+    100% {
         opacity: 1;
         transform: translateY(0px);
+    }
+}
+
+/*===============PRELOADER==================*/
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $white-8;
+    backdrop-filter: blur(10px);
+    @include row-center;
+    z-index: 999999;
+
+    .preloader-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 4px solid $primary-color;
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+        animation: loader 0.5s linear infinite;
+    }
+}
+@keyframes loader {
+    100% {
+        transform: rotate(360deg);
     }
 }

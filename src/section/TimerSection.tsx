@@ -34,8 +34,6 @@ const TimerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, settin
                 let difference = endDate.diff(now);
                 let duration = moment.duration(difference);
 
-                console.log(duration)
-
                 let months = duration.months();
                 let days = duration.days();
                 let hours = duration.hours();

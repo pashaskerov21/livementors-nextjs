@@ -51,7 +51,8 @@ const RootLayout: React.FC<LayoutProps> = ({ activeLocale, children, dictionary 
                 menu_translates: response.menu_translates ?? [],
                 faqs: response.faqs ?? [],
                 faq_translates: response.faq_translates ?? [],
-            }))
+            }));
+            setLoading(false);
         }
 
         fetchData();
@@ -76,6 +77,11 @@ const RootLayout: React.FC<LayoutProps> = ({ activeLocale, children, dictionary 
     const toggleToolbar = () => setShowToolbar(prev => !prev);
     return (
         <Provider store={store}>
+            {loading && (
+                <div className="preloader">
+                    <div className="preloader-icon"></div>
+                </div>
+            )}
             {fixed && <button className='scroll-button' onClick={() => window.scrollTo(0, 0)} type='button'><FaArrowUp /></button>}
             <div className={`social-toolbar ${fixed ? 'fixed-true' : ''}`}>
                 {showToolbar && (
