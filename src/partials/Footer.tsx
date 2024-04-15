@@ -1,0 +1,79 @@
+'use client'
+import React from 'react'
+import { LocaleType } from '../types/general/type'
+import { RootLayoutDataType } from '../types/data/type'
+import Link from 'next/link'
+import Image from 'next/image'
+import Site from '../class/Site'
+import { SocialMedia } from '../components'
+import { FaEnvelope, FaListCheck, FaLocationDot, FaPhone } from 'react-icons/fa6'
+import { Accordion, AccordionBody, AccordionItem } from 'react-bootstrap'
+
+type FooterProps = {
+  activeLocale: LocaleType,
+  dictionary: { [key: string]: string },
+  dataState: RootLayoutDataType,
+}
+
+const Footer: React.FC<FooterProps> = ({ activeLocale, dictionary, dataState }) => {
+  const apiURL = process.env.API_URL;
+  const site = new Site();
+  return (
+    <footer>
+      <div className="footer-top">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-start align-items-start gap-3 mb-5 mb-lg-0">
+              <Link href={`/${activeLocale}`} className='footer-logo'>
+                {
+                  dataState.settings.logo ?
+                    <Image src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
+                    <Image src="/logo/footer-logo.png" width={500} height={60} alt='logo' />
+                }
+              </Link>
+              <div className="footer-text">
+                {site.getSettingTranslate(1, "footer_text", activeLocale, dataState.setting_translates)}
+              </div>
+              <SocialMedia settings={dataState.settings} />
+            </div>
+            <div className="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-start align-items-start gap-3 mb-5 mb-lg-0">
+              <h4 className="col-title">{dictionary['faq']}</h4>
+              <Accordion>
+                {dataState.faqs.map((data) => (
+                  <AccordionItem key={data.id} eventKey={`${data.id}`}>
+                    <Accordion.Header>
+                      {site.getFaqTranslate(data.id, "title", activeLocale, dataState.faq_translates)}
+                    </Accordion.Header>
+                    <AccordionBody>
+                      <div className="collapse-inner">
+                        {site.getFaqTranslate(data.id, "text", activeLocale, dataState.faq_translates)}
+                      </div>
+                    </AccordionBody>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </div>
+            <div className="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-start align-items-start gap-3 mb-5 mb-lg-0">
+              <h4 className="col-title">{dictionary['contact']}</h4>
+              <div className="contact-links">
+                <Link target='_blank' href={`mailto:${dataState.settings.email}`}><FaEnvelope /><span>{dataState.settings.email}</span></Link>
+                <Link target='_blank' href={``}><FaPhone /><span>{dataState.settings.phone}</span></Link>
+                <Link target='_blank' href={dataState.settings.address_url ?? ''}><FaLocationDot /><span>{site.getSettingTranslate(1, "address_text", activeLocale, dataState.setting_translates)}</span></Link>
+                <Link href={`/${activeLocale}/contact`}><FaListCheck /> <span>{dictionary['apply']}</span></Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="footer-bottom">
+        <div className="container">
+          {activeLocale === 'az' && <div className="copyright"><Link target='_blank' href="https://dayaq.az/">&copy; Dayaq Xeyriyyə</Link> Məhsuludur</div>}
+          {activeLocale === 'en' && <div className="copyright">&copy; Product of <Link target='_blank' href="https://dayaq.az/"> Dayaq Charity</Link></div>}
+          {activeLocale === 'ru' && <div className="copyright">&copy; Product of <Link target='_blank' href="https://dayaq.az/"> Dayaq Charity</Link></div>}
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+export default React.memo(Footer)

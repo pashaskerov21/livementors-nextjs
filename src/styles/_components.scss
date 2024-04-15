@@ -1,0 +1,486 @@
+/*===========================SECTION TITLE============================*/
+.section-title {
+    width: 100%;
+    @include column-center;
+    gap: 8px;
+    margin-bottom: 30px;
+
+    .main-title {
+        font-size: 24px;
+        line-height: 24px;
+        color: #000000;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .sub-title {
+        font-size: 16px;
+        line-height: 16px;
+        color: #000000;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    &.white {
+
+        .main-title,
+        .sub-title {
+            color: #fff;
+        }
+    }
+}
+
+/*===========================GRID CONTAINER================================*/
+.grid-container {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    place-items: center;
+
+    &.max-3 {
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1200px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &.max-5 {
+        @media (min-width: 576px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (min-width: 1200px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (min-width: 1400px) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+}
+
+/*=======================PRIMARY CARD==========================*/
+.primary-card {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    @include column-center;
+
+    .card-image {
+        @include row-center;
+        width: 100%;
+        position: relative;
+
+        .main-image {
+            width: 100%;
+            height: 300px;
+
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $black-4;
+            z-index: 1;
+            @include row-center;
+            opacity: 0;
+            transition: all 0.3s;
+
+            .overlay-icon {
+                width: 60px;
+                height: 60px;
+                object-fit: contain;
+                transform: scale(0);
+                transition: all 0.3s;
+            }
+        }
+    }
+
+    .card-body {
+        width: 100%;
+        @include column-center;
+        gap: 15px;
+        background-color: #fff;
+        padding: 20px;
+
+        .card-title {
+            font-weight: 600;
+            color: $text-color-1;
+            font-size: 18px;
+            line-height: 24px;
+            text-align: center;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        .card-subtitle {
+            color: $text-color-1;
+            font-size: 16px;
+            line-height: 20px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .card-line {
+            width: 90px;
+            height: 3px;
+            background-color: $primary-color;
+        }
+
+        .card-date {
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 400;
+            color: $text-color-1;
+            text-align: center;
+        }
+    }
+
+    &:hover {
+        .card-image {
+            .image-overlay {
+                opacity: 1;
+
+                .overlay-icon {
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    &.event {
+        .card-image {
+            .main-image {
+                height: 270px;
+            }
+        }
+
+        .card-body {
+            min-height: 170px;
+
+            .card-title {
+                font-size: 16px;
+            }
+        }
+    }
+
+    &.commite-member {
+        max-width: 300px;
+
+        .card-image {
+            .main-image {
+                height: auto;
+
+                @media (min-width: 576px) {
+                    height: 170px;
+                }
+
+                @media (min-width: 768px) {
+                    height: 230px;
+                }
+            }
+        }
+
+        .card-body {
+            .card-subtitle {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+/*==================SEE ALL BUTTON=====================*/
+.see-all-button {
+    width: 100%;
+    max-width: 175px;
+    @include row-center;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 13px;
+    color: $text-color-2;
+    border: 1.5px solid $text-color-2;
+    margin: 0 auto;
+    margin-top: 30px;
+
+    &.white {
+        color: #fff;
+        border: 1.5px solid #fff;
+    }
+
+    &:hover {
+        background-color: $primary-color;
+        border-color: $primary-color;
+        color: #fff;
+    }
+}
+
+/*==================PERSON MODAL=====================*/
+
+.modal_backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: $black-6;
+    backdrop-filter: blur(10px);
+    z-index: 9990;
+    opacity: 0;
+    animation: backdrop 0.3s ease forwards;
+}
+
+@keyframes backdrop {
+    100% {
+        opacity: 1;
+    }
+}
+
+.person-modal {
+    width: 95%;
+    max-width: 900px;
+    max-height: 70vh;
+    overflow: auto;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    z-index: 9999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 10px;
+    opacity: 0;
+    animation: modal 0.5s ease forwards;
+
+    @media (min-width: 992px) {
+        max-height: 50vh;
+    }
+
+
+    .modal-inner {
+        width: 100%;
+        @include row-center;
+        align-items: flex-start;
+        padding: 30px 0;
+        background-color: #fff;
+        border-radius: 10px;
+
+        .close-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: #fff;
+            background-color: $primary-color;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            @include row-center;
+            cursor: pointer;
+            z-index: 10;
+            border: 2px solid $primary-color;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: #fff;
+                color: $primary-color;
+            }
+        }
+
+        .row {
+            width: 100%;
+
+            .col-12 {
+                margin-bottom: 40px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                @media (min-width: 992px) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .image {
+            width: 100%;
+            max-width: 300px;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+
+        .modal-content {
+            @include column-start;
+            gap: 10px;
+            max-height: 260px;
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+                height: 5px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: $primary-color;
+            }
+
+            .title {
+                font-weight: 600;
+                font-size: 22px;
+                margin-bottom: 0;
+
+                @media (min-width: 576px) {
+                    font-size: 32px;
+                }
+            }
+
+            .subtitle {
+                margin-bottom: 0;
+                font-size: 18px;
+            }
+
+            .text {
+                font-size: 14px;
+                line-height: 22px;
+                color: $text-color-1 !important;
+                background-color: transparent !important;
+            }
+        }
+    }
+}
+
+@keyframes modal {
+    100% {
+        opacity: 1;
+    }
+}
+
+/*=======================SCROLL BUTTON============================*/
+.scroll-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background-color: $secondary-color;
+    color: #fff;
+    @include row-center;
+    cursor: pointer;
+    z-index: 999;
+    border: 1px solid #fff;
+    animation: tool 0.3s ease forwards;
+    border-radius: 5px;
+
+    &:hover {
+        border-radius: 50%;
+    }
+}
+
+@keyframes tool {
+    0% {
+        opacity: 0;
+        transform: translateY(200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*======================SOCIAL TOOLBAR=======================*/
+.social-toolbar {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: 0.3s;
+    z-index: 999;
+
+    &.fixed-true {
+        bottom: 85px;
+    }
+
+    .open-toolbar-button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: #fff;
+        @include row-center;
+        background-color: $primary-color;
+        font-size: 28px;
+        border: 1px solid #fff;
+    }
+
+    .social-icons {
+        @include column-center;
+        gap: 15px;
+        margin-bottom: 15px;
+        opacity: 0;
+        transform: translateY(-50px);
+        animation: toolbaricons 0.3s ease forwards;
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            @include row-center;
+            color: #fff;
+            font-size: 30px;
+            border: 1px solid #fff;
+            img{
+                width: 30px;
+                height: 30px;
+                object-fit: contain;
+            }
+            svg,img{
+                transition: all 0.3s;
+            }
+            &:hover{
+                svg,img{
+                    transform: scale(0.8);
+                }
+            }
+            &.wp{
+                background-color: #25d366;
+            }
+            &.msg{
+                background-color: #ff6a00;
+            }
+            &.tg{
+                background-color: #0088cc;
+            }
+        }
+    }
+}
+@keyframes toolbaricons{
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
