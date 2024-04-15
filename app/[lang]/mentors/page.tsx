@@ -1,5 +1,6 @@
 import { getTranslate } from "@/get-translate";
 import Site from "@/src/class/Site";
+import { MentorLayout } from "@/src/layout";
 import { MetaDataType } from "@/src/types/data/type";
 import { LocaleType } from "@/src/types/general/type";
 import { MetaRequestDataType } from "@/src/types/request/type";
@@ -41,6 +42,10 @@ const Mentors = async ({ params: { lang } }: { params: { lang: LocaleType } }) =
         const dictionary = await getTranslate(lang);
         return (
             <>
+                <MentorLayout
+                    activeLocale={lang}
+                    dictionary={dictionary}
+                />
             </>
         )
     } catch (error) {

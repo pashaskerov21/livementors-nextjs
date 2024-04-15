@@ -143,9 +143,11 @@ section {
     .swiper-slide {
         @include row-center;
     }
-    &.pagination-true{
+
+    &.pagination-true {
         padding-bottom: 60px;
-        .swiper-pagination{
+
+        .swiper-pagination {
             bottom: 0;
         }
     }
@@ -169,7 +171,8 @@ header {
     position: relative;
     background-color: $secondary-color;
     z-index: 99;
-    &.fixed-top{
+
+    &.fixed-top {
         animation: fixed 0.5s ease forwards;
     }
 
@@ -368,12 +371,14 @@ header {
         transform: translateY(0);
     }
 }
-@keyframes fixed{
-    0%{
+
+@keyframes fixed {
+    0% {
         opacity: 0;
         transform: translateY(-100%);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
@@ -887,8 +892,9 @@ footer {
     @media(min-width: 768px) {
         padding: 40px 0;
     }
-    .event-swiper{
-        @media (min-width: 1200px){
+
+    .event-swiper {
+        @media (min-width: 1200px) {
             padding-bottom: 0;
         }
     }
@@ -909,6 +915,7 @@ footer {
 /*========================ABOUT MAIN SECTION========================*/
 .about-main-section {
     background-color: #F8F8F8;
+
     .col-12 {
         margin-bottom: 40px;
 
@@ -984,12 +991,14 @@ footer {
 /*====================COMMITE SECTION====================*/
 .commite-section {
     background-color: #F8F8F8;
+
     .commite-content {
         width: 100%;
         margin-bottom: 40px;
         @include column-center;
         gap: 20px;
-        @media (min-width: 768px){
+
+        @media (min-width: 768px) {
             gap: 40px;
         }
 
@@ -997,11 +1006,13 @@ footer {
             font-weight: 600;
             font-size: 22px;
             text-align: center;
+            margin-bottom: 0;
 
             @media (min-width: 576px) {
                 font-size: 32px;
             }
         }
+
         .text {
             text-align: center;
             font-size: 14px;
@@ -1022,18 +1033,25 @@ footer {
 }
 
 /*====================MENTOR HOME SECTION======================*/
-.mentors-home-section{
+.mentors-home-section {
     background-color: #F5F5F7;
+
     @media(min-width: 768px) {
         padding: 40px 0;
     }
 
-    @media(min-width: 992px) {
-        padding: 80px 0;
-    }
     .mentor-swiper {
-        @media (min-width: 1400px){
+        @media (min-width: 1400px) {
             padding-bottom: 0;
         }
     }
+}
+
+.mentor-main-section {
+    background-color: #F5F5F7;
+
+    @media(min-width: 768px) {
+        padding: 40px 0;
+    }
+
 }

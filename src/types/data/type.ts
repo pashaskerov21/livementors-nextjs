@@ -283,7 +283,7 @@ type HomeLayoutDataType = {
     gallery_images: GalleryDataType[],
     gallery_videos: GalleryDataType[],
     reports: ReportDataType[],
-    report_translates:ReportTranslateDataType[],
+    report_translates: ReportTranslateDataType[],
     comments: CommentDataType[],
     comment_translates: CommentTranslateDataType[],
     partners: PartnerDataType[],
@@ -306,6 +306,12 @@ type AboutLayoutDataType = {
     commite_translates: CommiteTranslateDataType[],
     commite_members: CommiteMemberDataType[],
     commite_member_translates: CommiteMemberTranslateDataType[],
+}
+type MentorLayoutDataType = {
+    banners: BannerDataType[],
+    banner_translates: BannerTranslateDataType[],
+    mentors: MentorDataType[],
+    mentor_translates: MentorTranslateDataType[],
 }
 
 export type {
@@ -347,5 +353,6 @@ export type {
     HomeLayoutDataType,
     EventLayoutDataType,
     AboutLayoutDataType,
+    MentorLayoutDataType,
 }
 
