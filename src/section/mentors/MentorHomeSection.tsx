@@ -96,7 +96,7 @@ const MentorHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, m
                 </Swiper>
                 <Link href={`/${activeLocale}/mentors`} className='see-all-button'>{dictionary['see_all']}</Link>
             </div>
-            {activeData && activeData.content_status &&
+            {activeData && activeData.content_status === 1 &&
                 <PersonModal
                     image={activeData.image}
                     title={site.getMentorTranslate(activeData.id, "title", activeLocale, mentor_translates)}

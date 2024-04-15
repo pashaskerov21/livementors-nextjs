@@ -67,7 +67,7 @@ const CommiteSection: React.FC<SectionProps> = ({ activeLocale, dataState }) => 
                     ))
                 }
             </div>
-            {activeData && activeData.content_status &&
+            {activeData && activeData.content_status === 1 &&
                 <PersonModal
                     image={activeData.image}
                     title={site.getCommiteMemberTranslate(activeData.id, "title", activeLocale, dataState.commite_member_translates)}
