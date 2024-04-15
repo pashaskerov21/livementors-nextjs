@@ -1,11 +1,11 @@
 'use client'
 import Site from '@/src/class/Site'
-import { SectionTitle } from '@/src/components'
+import { PersonModal, SectionTitle } from '@/src/components'
 import { MentorDataType, MentorTranslateDataType } from '@/src/types/data/type'
 import { LocaleType } from '@/src/types/general/type'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -19,6 +19,17 @@ type SectionProps = {
 const MentorHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, mentors, mentor_translates }) => {
     const apiURL = process.env.API_URL;
     const site = new Site();
+    const [activeData, setActiveData] = useState<MentorDataType | undefined>();
+    const showModal = (data: MentorDataType) => {
+        if (activeData && activeData.id === data.id) {
+            setActiveData(undefined);
+        } else {
+            setActiveData(data);
+        }
+    }
+    const closeModal = () => {
+        setActiveData(undefined);
+    }
     return (
         <section className="mentors-home-section">
             <div className="container">
@@ -61,7 +72,7 @@ const MentorHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, m
                 >
                     {mentors.map((data) => (
                         <SwiperSlide key={data.id}>
-                            <div className="primary-card mentor">
+                            <div className="primary-card mentor" onClick={() => showModal(data)}>
                                 {data.image && (
                                     <div className="card-image">
                                         <Image className='main-image' src={apiURL + data.image} width={2000} height={2000} priority={true} alt='card-image' />
@@ -85,6 +96,14 @@ const MentorHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, m
                 </Swiper>
                 <Link href={`/${activeLocale}/mentors`} className='see-all-button'>{dictionary['see_all']}</Link>
             </div>
+            {activeData && activeData.content_status &&
+                <PersonModal
+                    image={activeData.image}
+                    title={site.getMentorTranslate(activeData.id, "title", activeLocale, mentor_translates)}
+                    subtitle={site.getMentorTranslate(activeData.id, "subtitle", activeLocale, mentor_translates)}
+                    text={site.getMentorTranslate(activeData.id, "text", activeLocale, mentor_translates)}
+                    closeModal={closeModal}
+                />}
         </section>
     )
 }
