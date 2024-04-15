@@ -143,6 +143,12 @@ section {
     .swiper-slide {
         @include row-center;
     }
+    &.pagination-true{
+        padding-bottom: 60px;
+        .swiper-pagination{
+            bottom: 0;
+        }
+    }
 }
 
 .row {
@@ -881,6 +887,11 @@ footer {
     @media(min-width: 768px) {
         padding: 40px 0;
     }
+    .event-swiper{
+        @media (min-width: 1200px){
+            padding-bottom: 0;
+        }
+    }
 }
 
 .event-section {
@@ -1006,6 +1017,23 @@ footer {
         .text * {
             color: $text-color-1 !important;
             background-color: transparent !important;
+        }
+    }
+}
+
+/*====================MENTOR HOME SECTION======================*/
+.mentors-home-section{
+    background-color: #F5F5F7;
+    @media(min-width: 768px) {
+        padding: 40px 0;
+    }
+
+    @media(min-width: 992px) {
+        padding: 80px 0;
+    }
+    .mentor-swiper {
+        @media (min-width: 1400px){
+            padding-bottom: 0;
         }
     }
 }

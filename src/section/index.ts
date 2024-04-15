@@ -5,6 +5,7 @@ import EventHomeSection from "./events/EventHomeSection";
 import EventMainSection from "./events/EventMainSection";
 import AboutMainSection from "./about/AboutMainSection";
 import CommiteSection from "./about/CommiteSection";
+import MentorHomeSection from "./mentors/MentorHomeSection";
 
 export {
     BannerSection,
@@ -14,4 +15,5 @@ export {
     EventHomeSection,
     EventMainSection,
     CommiteSection,
+    MentorHomeSection,
 }
