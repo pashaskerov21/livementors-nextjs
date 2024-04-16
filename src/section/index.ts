@@ -14,6 +14,7 @@ import VideoMainSection from "./gallery/VideoMainSection";
 import ReportHomeSection from "./report/ReportHomeSection";
 import ReportMainSection from "./report/ReportMainSection";
 import ReportInnerSection from "./report/ReportInnerSection";
+import CommentSection from "./CommentSection";
 
 export {
     BannerSection,
@@ -32,4 +33,5 @@ export {
     ReportHomeSection,
     ReportMainSection,
     ReportInnerSection,
+    CommentSection,
 }
