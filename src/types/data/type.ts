@@ -321,6 +321,18 @@ type MentorLayoutDataType = {
 type VideoLayoutDataType = {
     gallery_videos: GalleryDataType[],
 }
+type ReportLayoutDataType = {
+    banners: BannerDataType[],
+    banner_translates: BannerTranslateDataType[],
+    reports: ReportDataType[],
+    report_translates: ReportTranslateDataType[],
+}
+type ReportInnerLayoutType = {
+    report: ReportDataType,
+    report_translate: ReportTranslateDataType,
+    report_media: ReportMediaDataType[],
+    report_documents: ReportDocumentDataType[],
+}
 
 export type {
     UserDataType,
@@ -364,5 +376,7 @@ export type {
     AboutLayoutDataType,
     MentorLayoutDataType,
     VideoLayoutDataType,
+    ReportLayoutDataType,
+    ReportInnerLayoutType,
 }
 

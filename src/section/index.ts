@@ -11,6 +11,9 @@ import MentorHomeSection from "./mentors/MentorHomeSection";
 import MentorMainSection from "./mentors/MentorMainSection";
 import VideoHomeSection from "./gallery/VideoHomeSection";
 import VideoMainSection from "./gallery/VideoMainSection";
+import ReportHomeSection from "./report/ReportHomeSection";
+import ReportMainSection from "./report/ReportMainSection";
+import ReportInnerSection from "./report/ReportInnerSection";
 
 export {
     BannerSection,
@@ -26,4 +29,7 @@ export {
     VideoMainSection,
     EventInnerSection,
     EventGallerySection,
+    ReportHomeSection,
+    ReportMainSection,
+    ReportInnerSection,
 }

@@ -27,12 +27,12 @@ const EventGallerySection: React.FC<SectionProps> = ({ activeLocale, dictionary,
                         {
                             event_gallery.map((data) => (
                                 data.image && (
-                                    <Link key={data.id} href={apiURL + data.image} className="gallery-image" data-fancybox='event-gallery'>
+                                    <div className="gallery-image" key={data.id}>
                                         <Image src={apiURL + data.image} width={1000} height={1000} alt='' priority={true} />
                                         <div className="image-overlay">
-                                            <Link href={apiURL + data.image} className='zoom-button'><FaMagnifyingGlass/></Link>
+                                            <Link href={apiURL + data.image} data-fancybox='event-gallery' className='zoom-button'><FaMagnifyingGlass/></Link>
                                         </div>
-                                    </Link>
+                                    </div>
                                 )
                             ))
                         }

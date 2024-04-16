@@ -5,6 +5,8 @@ import EventInnerLayout from "./EventInnerLayout";
 import AboutLayout from "./AboutLayout";
 import MentorLayout from "./MentorLayout";
 import VideoLayout from "./VideoLayout";
+import ReportLayout from "./ReportLayout";
+import ReportInnerLayout from "./ReportInnerLayout";
 
 export {
     RootLayout,
@@ -14,4 +16,6 @@ export {
     AboutLayout,
     MentorLayout,
     VideoLayout,
+    ReportLayout,
+    ReportInnerLayout,
 }

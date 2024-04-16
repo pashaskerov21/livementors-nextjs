@@ -1,5 +1,6 @@
 import { getTranslate } from "@/get-translate";
 import Site from "@/src/class/Site";
+import { ReportInnerLayout } from "@/src/layout";
 import { MetaDataType } from "@/src/types/data/type";
 import { LocaleType } from "@/src/types/general/type";
 import { MetaRequestDataType } from "@/src/types/request/type";
@@ -43,6 +44,11 @@ const ReportInner = async ({ params: { lang, slug } }: { params: { lang: LocaleT
         const dictionary = await getTranslate(lang);
         return (
             <>
+                <ReportInnerLayout
+                    activeLocale={lang}
+                    dictionary={dictionary}
+                    slug={slug}
+                />
             </>
         )
     } catch (error) {

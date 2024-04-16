@@ -83,11 +83,11 @@
         }
     }
     &.max-4{
-        @media (min-width: 576px) {
+        @media (min-width: 768px) {
             grid-template-columns: repeat(2, 1fr);
         }
 
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             grid-template-columns: repeat(3, 1fr);
         }
 
@@ -201,6 +201,20 @@
             color: $text-color-1;
             text-align: center;
         }
+        .card-text{
+            color: $text-color-1;
+            font-size: 14px;
+            text-align: center;
+            line-height: 20px;
+            a{
+                color: $primary-color;
+                text-decoration: underline;
+                font-weight: 500;
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
     }
 
     &:hover {
@@ -264,6 +278,14 @@
         .card-body {
             .card-subtitle {
                 font-size: 14px;
+            }
+        }
+    }
+    &.report{
+        max-width: 400px;
+        .card-image {
+            .main-image {
+                height: auto;
             }
         }
     }

@@ -20,7 +20,7 @@ const VideoMainSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ga
                 />
                 <div className="grid-container max-3">
                     {gallery_videos.map((data) => (
-                        <div className="video-iframe">
+                        <div className="video-iframe" key={data.id}>
                             <iframe src={data.video_url ?? ''} referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                         </div>
                     ))}
