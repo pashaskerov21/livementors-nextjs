@@ -17,10 +17,11 @@ type LayoutProps = {
 const EventInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, slug }) => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState<boolean>(true);
+
     const localeSlugs: LocaleStateType[] = i18n.locales.map((locale) => {
         return {
             locale: locale,
-            slug: `events/${slug}`
+            slug: 'events'
         }
     });
     useEffect(() => {
@@ -31,6 +32,7 @@ const EventInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, slu
     const [dataState, setDataState] = useState<EventInnerLayoutType>({
         event: {} as EventDataType,
         event_translate: {} as EventTranslateDataType,
+        event_translates: [],
         event_gallery: [],
     });
 
@@ -45,13 +47,23 @@ const EventInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, slu
                 ...prev,
                 event: response.event ?? {},
                 event_translate: response.event_translate ?? {},
+                event_translates: response.event_translates ?? [],
                 event_gallery: response.event_gallery ?? []
             }));
-            setLoading(false)
+            setLoading(false);
         }
 
         fetchData();
     }, []);
+    useEffect(() => {
+        const newLocaleSlugs: LocaleStateType[] = dataState.event_translates.map((data) => {
+            return {
+                locale: data.lang,
+                slug: `events/${data.slug}`
+            }
+        });
+        dispatch(updateLocaleSlug(newLocaleSlugs));
+    }, [dispatch, dataState.event_translates])
     return (
         <>
             {dataState.event.id && dataState.event_translate.title && (

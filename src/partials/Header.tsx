@@ -20,20 +20,34 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
     const site = new Site();
     const pathName = usePathname();
     const [menuShow, setMenuShow] = useState<boolean>(false);
+    const [loading, setLoading] = useState<boolean>(false);
     const toggleMenu = useCallback(() => {
         setMenuShow(prev => !prev);
     }, [setMenuShow]);
 
+    const handleLinkClick = (key: string) => {
+        if (key !== pathName) {
+          setLoading(true);
+        }
+      }
+
     useEffect(() => {
         setMenuShow(false);
+        setLoading(false);
     }, [pathName]);
+
     return (
         <header className={fixed ? 'fixed-top' : ''}>
+            {loading && (
+                <div className="preloader">
+                    <div className="preloader-icon"></div>
+                </div>
+            )}
             <nav className="mobile-nav d-xl-none">
                 <div className="container">
                     <div className="row">
                         <div className="col-6 d-flex justify-content-start align-items-end">
-                            <Link href={`/${activeLocale}`} className='header-logo'>
+                            <Link href={`/${activeLocale}`} className='header-logo' onClick={() => handleLinkClick(`/${activeLocale}`)}>
                                 {
                                     dataState.settings.logo ?
                                         <Image src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
@@ -57,7 +71,7 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
                     <div className="container">
                         <div className="menu-links">
                             {dataState.menues.map((data) => (
-                                <Link key={data.id} href={`/${activeLocale}/${data.slug}`} className={pathName === `/${activeLocale}/${data.slug}` ? 'active' : ''}>
+                                <Link key={data.id} href={`/${activeLocale}/${data.slug}`} className={pathName === `/${activeLocale}/${data.slug}` ? 'active' : ''} onClick={() => handleLinkClick(`/${activeLocale}/${data.slug}`)}>
                                     {site.getMenuTranslate(data.id, "title", activeLocale, dataState.menu_translates)}
                                 </Link>
                             ))}
@@ -70,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
                 <div className="container">
                     <div className="row">
                         <div className="col-2 d-flex justify-content-start align-items-end">
-                            <Link href={`/${activeLocale}`} className='header-logo'>
+                            <Link href={`/${activeLocale}`} className='header-logo' onClick={() => handleLinkClick(`/${activeLocale}`)}>
                                 {
                                     dataState.settings.logo ?
                                         <Image src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
@@ -81,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
                         <div className="col-8 d-flex justify-content-center align-items-end">
                             <div className="nav-links">
                                 {dataState.menues.map((data) => (
-                                    <Link key={data.id} href={`/${activeLocale}/${data.slug}`} className={pathName === `/${activeLocale}/${data.slug}` ? 'active' : ''}>
+                                    <Link key={data.id} href={`/${activeLocale}/${data.slug}`} className={pathName === `/${activeLocale}/${data.slug}` ? 'active' : ''} onClick={() => handleLinkClick(`/${activeLocale}/${data.slug}`)}>
                                         {site.getMenuTranslate(data.id, "title", activeLocale, dataState.menu_translates)}
                                     </Link>
                                 ))}

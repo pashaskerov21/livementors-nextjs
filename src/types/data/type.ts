@@ -297,6 +297,7 @@ type EventLayoutDataType = {
 type EventInnerLayoutType = {
     event: EventDataType,
     event_translate: EventTranslateDataType,
+    event_translates: EventTranslateDataType[],
     event_gallery: EventGalleryDataType[],
 }
 type AboutLayoutDataType = {
@@ -330,6 +331,7 @@ type ReportLayoutDataType = {
 type ReportInnerLayoutType = {
     report: ReportDataType,
     report_translate: ReportTranslateDataType,
+    report_translates: ReportTranslateDataType[],
     report_media: ReportMediaDataType[],
     report_documents: ReportDocumentDataType[],
 }

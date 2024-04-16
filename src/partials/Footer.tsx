@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { LocaleType } from '../types/general/type'
 import { RootLayoutDataType } from '../types/data/type'
 import Link from 'next/link'
@@ -8,6 +8,7 @@ import Site from '../class/Site'
 import { SocialMedia } from '../components'
 import { FaEnvelope, FaListCheck, FaLocationDot, FaPhone } from 'react-icons/fa6'
 import { Accordion, AccordionBody, AccordionItem } from 'react-bootstrap'
+import { usePathname } from 'next/navigation'
 
 type FooterProps = {
   activeLocale: LocaleType,
@@ -18,13 +19,30 @@ type FooterProps = {
 const Footer: React.FC<FooterProps> = ({ activeLocale, dictionary, dataState }) => {
   const apiURL = process.env.API_URL;
   const site = new Site();
+
+  const pathName = usePathname();
+  const [loading, setLoading] = useState<boolean>(false);
+  const handleLinkClick = (key: string) => {
+    if (key !== pathName) {
+      setLoading(true);
+    }
+  }
+
+  useEffect(() => {
+    setLoading(false);
+  }, [pathName]);
   return (
     <footer>
+      {loading && (
+        <div className="preloader">
+          <div className="preloader-icon"></div>
+        </div>
+      )}
       <div className="footer-top">
         <div className="container">
           <div className="row">
             <div className="col-12 col-md-6 col-lg-4 d-flex flex-column justify-content-start align-items-start gap-3 mb-5 mb-lg-0">
-              <Link href={`/${activeLocale}`} className='footer-logo'>
+              <Link href={`/${activeLocale}`} className='footer-logo' onClick={() => handleLinkClick(`/${activeLocale}`)}>
                 {
                   dataState.settings.logo ?
                     <Image src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
@@ -59,7 +77,7 @@ const Footer: React.FC<FooterProps> = ({ activeLocale, dictionary, dataState }) 
                 <Link target='_blank' href={`mailto:${dataState.settings.email}`}><FaEnvelope /><span>{dataState.settings.email}</span></Link>
                 <Link target='_blank' href={``}><FaPhone /><span>{dataState.settings.phone}</span></Link>
                 <Link target='_blank' href={dataState.settings.address_url ?? ''}><FaLocationDot /><span>{site.getSettingTranslate(1, "address_text", activeLocale, dataState.setting_translates)}</span></Link>
-                <Link href={`/${activeLocale}/contact`}><FaListCheck /> <span>{dictionary['apply']}</span></Link>
+                <Link href={`/${activeLocale}/contact`} onClick={() => handleLinkClick(`/${activeLocale}/contact`)}><FaListCheck /> <span>{dictionary['apply']}</span></Link>
               </div>
             </div>
           </div>

@@ -5,7 +5,8 @@ import { ReportDataType, ReportTranslateDataType } from '@/src/types/data/type'
 import { LocaleType } from '@/src/types/general/type'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import { usePathname } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 
 type SectionProps = {
     activeLocale: LocaleType,
@@ -17,8 +18,24 @@ type SectionProps = {
 const ReportMainSection: React.FC<SectionProps> = ({ activeLocale, dictionary, reports, report_translates }) => {
     const apiURL = process.env.API_URL;
     const site = new Site();
+
+    const pathName = usePathname();
+    const [loading, setLoading] = useState<boolean>(false);
+    const handleLinkClick = (key: string) => {
+        if (key !== pathName) {
+            setLoading(true);
+        }
+    }
+    useEffect(() => {
+        setLoading(false);
+    }, [pathName]);
     return (
         <section className='report-main-section'>
+            {loading && (
+                <div className="preloader">
+                    <div className="preloader-icon"></div>
+                </div>
+            )}
             <div className="container">
                 <SectionTitle
                     title={dictionary['report']}
@@ -28,7 +45,10 @@ const ReportMainSection: React.FC<SectionProps> = ({ activeLocale, dictionary, r
                     {reports.map((data) => (
                         <div className="primary-card report" key={data.id}>
                             {data.card_image && (
-                                <Link href={`/${activeLocale}/report/${site.getReportTranslate(data.id, "slug", activeLocale, report_translates)}`} className="card-image">
+                                <Link
+                                    href={`/${activeLocale}/report/${site.getReportTranslate(data.id, "slug", activeLocale, report_translates)}`}
+                                    onClick={() => handleLinkClick(`/${activeLocale}/report/${site.getReportTranslate(data.id, "slug", activeLocale, report_translates)}`)}
+                                    className="card-image">
                                     <Image className='main-image' src={apiURL + data.card_image} width={2000} height={2000} priority={true} alt='card-image' />
                                     <div className="image-overlay">
                                         <Image className='overlay-icon' src='/icon/icon-large.png' width={60} height={60} alt='large-icon' />
@@ -36,7 +56,10 @@ const ReportMainSection: React.FC<SectionProps> = ({ activeLocale, dictionary, r
                                 </Link>
                             )}
                             <div className="card-body">
-                                <Link href={`/${activeLocale}/report/${site.getReportTranslate(data.id, "slug", activeLocale, report_translates)}`} className='card-title'>
+                                <Link
+                                    href={`/${activeLocale}/report/${site.getReportTranslate(data.id, "slug", activeLocale, report_translates)}`}
+                                    onClick={() => handleLinkClick(`/${activeLocale}/report/${site.getReportTranslate(data.id, "slug", activeLocale, report_translates)}`)}
+                                    className='card-title'>
                                     {site.getReportTranslate(data.id, "title", activeLocale, report_translates)}
                                 </Link>
                                 <div className="card-line"></div>

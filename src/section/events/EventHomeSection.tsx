@@ -5,7 +5,8 @@ import { EventDataType, EventTranslateDataType } from '@/src/types/data/type'
 import { LocaleType } from '@/src/types/general/type'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import { usePathname } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -19,8 +20,24 @@ type SectionProps = {
 const EventHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, events, event_translates, }) => {
     const apiURL = process.env.API_URL;
     const site = new Site();
+
+    const pathName = usePathname();
+    const [loading, setLoading] = useState<boolean>(false);
+    const handleLinkClick = (key: string) => {
+        if (key !== pathName) {
+            setLoading(true);
+        }
+    }
+    useEffect(() => {
+        setLoading(false);
+    }, [pathName]);
     return (
         <section className='event-home-section' style={{ backgroundImage: "url('/bg/event-bg.png')" }}>
+            {loading && (
+                <div className="preloader">
+                    <div className="preloader-icon"></div>
+                </div>
+            )}
             <div className="container">
                 <SectionTitle
                     title={dictionary['events']}
@@ -51,7 +68,10 @@ const EventHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ev
                         <SwiperSlide key={data.id}>
                             <div className="primary-card event">
                                 {data.image && (
-                                    <Link href={`/${activeLocale}/events/${site.getEventTranslate(data.id, "slug", activeLocale, event_translates)}`} className="card-image">
+                                    <Link
+                                        href={`/${activeLocale}/events/${site.getEventTranslate(data.id, "slug", activeLocale, event_translates)}`}
+                                        onClick={() => handleLinkClick(`/${activeLocale}/events/${site.getEventTranslate(data.id, "slug", activeLocale, event_translates)}`)}
+                                        className="card-image">
                                         <Image className='main-image' src={apiURL + data.image} width={2000} height={2000} priority={true} alt='card-image' />
                                         <div className="image-overlay">
                                             <Image className='overlay-icon' src='/icon/icon-large.png' width={60} height={60} alt='large-icon' />
@@ -59,7 +79,10 @@ const EventHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ev
                                     </Link>
                                 )}
                                 <div className="card-body">
-                                    <Link href={`/${activeLocale}/events/${site.getEventTranslate(data.id, "slug", activeLocale, event_translates)}`} className='card-title'>
+                                    <Link
+                                        href={`/${activeLocale}/events/${site.getEventTranslate(data.id, "slug", activeLocale, event_translates)}`}
+                                        onClick={() => handleLinkClick(`/${activeLocale}/events/${site.getEventTranslate(data.id, "slug", activeLocale, event_translates)}`)}
+                                        className='card-title'>
                                         {site.getEventTranslate(data.id, "title", activeLocale, event_translates)}
                                     </Link>
                                     <div className="card-subtitle">

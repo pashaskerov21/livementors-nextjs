@@ -20,7 +20,7 @@ const ReportInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, sl
     const localeSlugs: LocaleStateType[] = i18n.locales.map((locale) => {
         return {
             locale: locale,
-            slug: `report/${slug}`
+            slug: 'report'
         }
     });
     useEffect(() => {
@@ -31,6 +31,7 @@ const ReportInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, sl
     const [dataState, setDataState] = useState<ReportInnerLayoutType>({
         report: {} as ReportDataType,
         report_translate: {} as ReportTranslateDataType,
+        report_translates: [],
         report_media: [],
         report_documents: [],
     });
@@ -46,6 +47,7 @@ const ReportInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, sl
                 ...prev,
                 report: response.report ?? {},
                 report_translate: response.report_translate ?? {},
+                report_translates: response.report_translates ?? [],
                 report_media: response.report_media ?? [],
                 report_documents: response.report_documents ?? [],
             }));
@@ -54,6 +56,15 @@ const ReportInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, sl
 
         fetchData();
     }, []);
+    useEffect(() => {
+        const newLocaleSlugs: LocaleStateType[] = dataState.report_translates.map((data) => {
+            return {
+                locale: data.lang,
+                slug: `report/${data.slug}`
+            }
+        });
+        dispatch(updateLocaleSlug(newLocaleSlugs));
+    }, [dataState.report_translates])
     return (
         <>
             <ReportInnerSection
