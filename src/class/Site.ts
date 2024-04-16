@@ -16,6 +16,7 @@ class Site {
         report: `${this.apiURL}/api/site/report`,
         report_inner: `${this.apiURL}/api/site/report_inner`,
         partners: `${this.apiURL}/api/site/partners`,
+        videos: `${this.apiURL}/api/site/videos`,
         contact: `${this.apiURL}/api/site/contact`,
         message_store: `${this.apiURL}/api/site/message_store`,
         sitemap: `${this.apiURL}/api/site/sitemap`,
@@ -94,6 +95,14 @@ class Site {
     public partners = async () => {
         try {
             const response = await axios.get(this.api.partners, this.axiosConfig)
+            return response.data;
+        } catch (error: any) {
+            console.log(error)
+        }
+    }
+    public videos = async () => {
+        try {
+            const response = await axios.get(this.api.videos, this.axiosConfig)
             return response.data;
         } catch (error: any) {
             console.log(error)

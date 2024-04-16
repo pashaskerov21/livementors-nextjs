@@ -7,6 +7,8 @@ import AboutMainSection from "./about/AboutMainSection";
 import CommiteSection from "./about/CommiteSection";
 import MentorHomeSection from "./mentors/MentorHomeSection";
 import MentorMainSection from "./mentors/MentorMainSection";
+import VideoHomeSection from "./gallery/VideoHomeSection";
+import VideoMainSection from "./gallery/VideoMainSection";
 
 export {
     BannerSection,
@@ -18,4 +20,6 @@ export {
     CommiteSection,
     MentorHomeSection,
     MentorMainSection,
+    VideoHomeSection,
+    VideoMainSection,
 }

@@ -6,7 +6,7 @@ import { i18n } from '@/i18n-config'
 import { updateLocaleSlug } from '../redux/actions/LocaleAction'
 import { AboutDataType, HomeLayoutDataType, SettingDataType } from '../types/data/type'
 import Site from '../class/Site'
-import { AboutHomeSection, BannerSection, EventHomeSection, MentorHomeSection, TimerSection } from '../section'
+import { AboutHomeSection, BannerSection, EventHomeSection, MentorHomeSection, TimerSection, VideoHomeSection } from '../section'
 
 type LayoutProps = {
     activeLocale: LocaleType,
@@ -123,7 +123,11 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                 />
             )}
             {dataState.gallery_videos.length > 0 && (
-                <div>gallery_videos</div>
+                <VideoHomeSection
+                activeLocale={activeLocale}
+                dictionary={dictionary}
+                gallery_videos={dataState.gallery_videos}
+                />
             )}
             {dataState.reports.length > 0 && dataState.mentor_translates.length > 0 && (
                 <div>reports</div>

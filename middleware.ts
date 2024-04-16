@@ -36,6 +36,7 @@ export function middleware(request: NextRequest) {
       '/logo/footer-logo.png',
       '/favicon.ico',
       '/bg/event-bg.png',
+      '/bg/video-bg.jpg',
       '/icon/icon-large.png',
       '/icon/conversation.png',
       // Your other files in `public`
