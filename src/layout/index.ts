@@ -7,6 +7,7 @@ import MentorLayout from "./MentorLayout";
 import VideoLayout from "./VideoLayout";
 import ReportLayout from "./ReportLayout";
 import ReportInnerLayout from "./ReportInnerLayout";
+import PartnerLayout from "./PartnerLayout";
 
 export {
     RootLayout,
@@ -18,4 +19,5 @@ export {
     VideoLayout,
     ReportLayout,
     ReportInnerLayout,
+    PartnerLayout,
 }

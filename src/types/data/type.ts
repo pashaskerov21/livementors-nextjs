@@ -335,6 +335,11 @@ type ReportInnerLayoutType = {
     report_media: ReportMediaDataType[],
     report_documents: ReportDocumentDataType[],
 }
+type PartnerLayoutDataType = {
+    banners: BannerDataType[],
+    banner_translates: BannerTranslateDataType[],
+    partners: PartnerDataType[],
+}
 
 export type {
     UserDataType,
@@ -380,5 +385,6 @@ export type {
     VideoLayoutDataType,
     ReportLayoutDataType,
     ReportInnerLayoutType,
+    PartnerLayoutDataType,
 }
 

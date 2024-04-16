@@ -15,6 +15,7 @@ import ReportHomeSection from "./report/ReportHomeSection";
 import ReportMainSection from "./report/ReportMainSection";
 import ReportInnerSection from "./report/ReportInnerSection";
 import CommentSection from "./CommentSection";
+import PartnerSection from "./PartnerSection";
 
 export {
     BannerSection,
@@ -34,4 +35,5 @@ export {
     ReportMainSection,
     ReportInnerSection,
     CommentSection,
+    PartnerSection,
 }
