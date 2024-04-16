@@ -3,6 +3,8 @@ import TimerSection from "./TimerSection";
 import AboutHomeSection from "./about/AboutHomeSection";
 import EventHomeSection from "./events/EventHomeSection";
 import EventMainSection from "./events/EventMainSection";
+import EventInnerSection from "./events/EventInnerSection";
+import EventGallerySection from "./events/EventGallerySection";
 import AboutMainSection from "./about/AboutMainSection";
 import CommiteSection from "./about/CommiteSection";
 import MentorHomeSection from "./mentors/MentorHomeSection";
@@ -22,4 +24,6 @@ export {
     MentorMainSection,
     VideoHomeSection,
     VideoMainSection,
+    EventInnerSection,
+    EventGallerySection,
 }

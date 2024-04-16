@@ -294,6 +294,11 @@ type EventLayoutDataType = {
     events: EventDataType[],
     event_translates: EventTranslateDataType[],
 }
+type EventInnerLayoutType = {
+    event: EventDataType,
+    event_translate: EventTranslateDataType,
+    event_gallery: EventGalleryDataType[],
+}
 type AboutLayoutDataType = {
     banners: BannerDataType[],
     banner_translates: BannerTranslateDataType[],
@@ -312,6 +317,9 @@ type MentorLayoutDataType = {
     banner_translates: BannerTranslateDataType[],
     mentors: MentorDataType[],
     mentor_translates: MentorTranslateDataType[],
+}
+type VideoLayoutDataType = {
+    gallery_videos: GalleryDataType[],
 }
 
 export type {
@@ -352,7 +360,9 @@ export type {
     RootLayoutDataType,
     HomeLayoutDataType,
     EventLayoutDataType,
+    EventInnerLayoutType,
     AboutLayoutDataType,
     MentorLayoutDataType,
+    VideoLayoutDataType,
 }
 

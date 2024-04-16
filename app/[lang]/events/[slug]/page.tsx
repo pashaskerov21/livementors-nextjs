@@ -1,5 +1,6 @@
 import { getTranslate } from "@/get-translate";
 import Site from "@/src/class/Site";
+import { EventInnerLayout } from "@/src/layout";
 import { MetaDataType } from "@/src/types/data/type";
 import { LocaleType } from "@/src/types/general/type";
 import { MetaRequestDataType } from "@/src/types/request/type";
@@ -43,6 +44,11 @@ const EventInner = async ({ params: { lang, slug } }: { params: { lang: LocaleTy
         const dictionary = await getTranslate(lang);
         return (
             <>
+                <EventInnerLayout
+                    activeLocale={lang}
+                    dictionary={dictionary}
+                    slug={slug}
+                />
             </>
         )
     } catch (error) {

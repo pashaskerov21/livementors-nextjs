@@ -4,7 +4,7 @@ import { LocaleStateType, LocaleType } from '../types/general/type'
 import { useDispatch } from 'react-redux'
 import { i18n } from '@/i18n-config'
 import { updateLocaleSlug } from '../redux/actions/LocaleAction'
-import { GalleryDataType } from '../types/data/type'
+import { GalleryDataType, VideoLayoutDataType } from '../types/data/type'
 import Site from '../class/Site'
 import { VideoMainSection } from '../section'
 
@@ -27,17 +27,13 @@ const VideoLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     }, [dispatch]);
 
     const site = new Site();
-    const [dataState, setDataState] = useState<{
-        gallery_videos: GalleryDataType[],
-    }>({
+    const [dataState, setDataState] = useState<VideoLayoutDataType>({
         gallery_videos: []
     });
 
     useEffect(() => {
         const fetchData = async () => {
-            const response: {
-                gallery_videos: GalleryDataType[],
-            } = await site.videos();
+            const response: VideoLayoutDataType = await site.videos();
             setDataState(prev => ({
                 ...prev,
                 gallery_videos: response.gallery_videos ?? [],
