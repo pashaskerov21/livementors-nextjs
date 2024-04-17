@@ -47,12 +47,8 @@ const MentorHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, m
                         dynamicMainBullets: 5
                     }}
                     breakpoints={{
-                        576: {
-                            slidesPerView: 2,
-                            spaceBetween: 20,
-                        },
                         768: {
-                            slidesPerView: 3,
+                            slidesPerView: 2,
                             spaceBetween: 20,
                         },
                         992: {

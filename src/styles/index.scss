@@ -1477,3 +1477,16 @@ footer {
         }
     }
 }
+
+/*====================HOME IMAGE GALLERY SECTION======================*/
+.gallery-images-section{
+    padding: 0;
+    margin: 0;
+    .gallery-image{
+        height: 250px !important;
+        img{
+            height: 250px !important;
+            object-fit: cover;
+        }
+    }
+}
