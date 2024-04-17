@@ -1526,9 +1526,6 @@ footer {
                 &:focus{
                     box-shadow: none;
                 }
-                // &.is-invalid{
-                //     border: 1px solid #dc3545;
-                // }
             }
             textarea.form-control{
                 min-height: 180px;
@@ -1542,6 +1539,7 @@ footer {
             border: 1px solid $secondary-color;
             @include row-center;
             letter-spacing: 1px;
+            color: $secondary-color;
             &:hover{
                 background-color: $primary-color;
                 border-color: $primary-color;
@@ -1590,6 +1588,60 @@ footer {
             @media (min-width: 768px) {
                 font-size: 20px;
                 line-height: 20px;
+            }
+        }
+    }
+}
+
+/*======================PAGE 404 SECTION====================*/
+.page-404-section{
+    width: 100%;
+    background-color: #F5F5F7;
+    min-height: 70vh;
+    @include row-center;
+    padding: 40px 0;
+    @media(min-width: 768px) {
+        padding: 60px 0;
+    }
+    .wrapper-404{
+        width: 100%;
+        @include column-center;
+        gap: 30px;
+        .error-code{
+            font-size: 80px;
+            line-height: 80px;
+            color: $secondary-color;
+            font-weight: 900;
+            @media (min-width: 576px){
+                font-size: 100px;
+                line-height: 100px;
+            }
+            @media (min-width: 768px){
+                font-size: 140px;
+                line-height: 140px;
+            }
+            @media (min-width: 1200px){
+                font-size: 180px;
+                line-height: 180px;
+            }
+        }
+        .error-text{
+            font-size: 22px;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+        a{
+            width: 100%;
+            max-width: 250px;
+            padding: 15px;
+            border: 1px solid $secondary-color;
+            @include row-center;
+            letter-spacing: 1px;
+            color: $secondary-color;
+            &:hover{
+                background-color: $primary-color;
+                border-color: $primary-color;
+                color: #fff;
             }
         }
     }

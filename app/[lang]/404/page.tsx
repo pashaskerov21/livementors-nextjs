@@ -1,4 +1,5 @@
 import { getTranslate } from '@/get-translate';
+import { Page404Layout } from '@/src/layout';
 import { LocaleType } from '@/src/types/general/type';
 import { Metadata } from 'next';
 import React from 'react'
@@ -22,11 +23,12 @@ const Page404 = async ({ params: { lang } }: { params: { lang: LocaleType } }) =
     try {
         const dictionary = await getTranslate(lang);
         return (
-            // <Page404Layout
-            //   activeLocale={lang}
-            //   dictionary={dictionary}
-            // />
-            <>404</>
+            <>
+                <Page404Layout
+                    activeLocale={lang}
+                    dictionary={dictionary}
+                />
+            </>
         )
     } catch (error) {
         console.log(error);

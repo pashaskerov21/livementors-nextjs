@@ -9,6 +9,7 @@ import ReportLayout from "./ReportLayout";
 import ReportInnerLayout from "./ReportInnerLayout";
 import PartnerLayout from "./PartnerLayout";
 import ContactLayout from "./ContactLayout";
+import Page404Layout from "./Page404Layout";
 
 export {
     RootLayout,
@@ -22,4 +23,5 @@ export {
     ReportInnerLayout,
     PartnerLayout,
     ContactLayout,
+    Page404Layout,
 }
