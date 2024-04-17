@@ -16,15 +16,18 @@
     "photos": "Fotolar",
     "media": "Media",
     "documents": "Sənədlər",
-    "application_form": "Müraciət formu",
+    "application_form": "Müraciət forması",
     "fullname": "Ad, Soyad",
     "contact_number": "Əlaqə nömrəsi",
     "email_address": "Mail adresi",
+    "subject": "Mövzu",
     "note": "Qeyd",
     "send": "Göndər",
     "tel": "Tel",
     "page_not_found": "Səhifə tapılmadı",
     "apply": "Müraciət et",
     "video_gallery": "Video Qalereya",
-    "etrafli": "ətraflı"
+    "etrafli": "ətraflı",
+    "congratulations": "Təbriklər",
+    "message_success": "Mesajınız uğurla göndərildi"
 }

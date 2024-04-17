@@ -340,6 +340,12 @@ type PartnerLayoutDataType = {
     banner_translates: BannerTranslateDataType[],
     partners: PartnerDataType[],
 }
+type ContactLayoutDataType = {
+    banners: BannerDataType[],
+    banner_translates: BannerTranslateDataType[],
+    settings: SettingDataType,
+    setting_translates: SettingTranslateDataType[],
+}
 
 export type {
     UserDataType,
@@ -386,5 +392,6 @@ export type {
     ReportLayoutDataType,
     ReportInnerLayoutType,
     PartnerLayoutDataType,
+    ContactLayoutDataType,
 }
 

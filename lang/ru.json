@@ -20,11 +20,14 @@
     "fullname": "Имя Фамилия",
     "contact_number": "Контактный номер",
     "email_address": "Электронный адрес",
+    "subject": "Тема",
     "note": "Заметка",
     "send": "Отправлять",
     "tel": "Тел",
     "page_not_found": "Страница не найдена",
     "apply": "Применять",
     "video_gallery": "Видео Галерея",
-    "etrafli": "читать далее"
+    "etrafli": "читать далее",
+    "congratulations": "Поздравляем!",
+    "message_success": "Ваше сообщение было отправлено успешно"
 }

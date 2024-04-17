@@ -8,6 +8,7 @@ import VideoLayout from "./VideoLayout";
 import ReportLayout from "./ReportLayout";
 import ReportInnerLayout from "./ReportInnerLayout";
 import PartnerLayout from "./PartnerLayout";
+import ContactLayout from "./ContactLayout";
 
 export {
     RootLayout,
@@ -20,4 +21,5 @@ export {
     ReportLayout,
     ReportInnerLayout,
     PartnerLayout,
+    ContactLayout,
 }
