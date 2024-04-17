@@ -87,7 +87,7 @@ const ReportInnerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, 
                                     )}
                                     {data.type === 'photo' && data.image && (
                                         <>
-                                            <Image src={'/bg/video-bg.jpg'} width={1000} height={1000} priority={true} alt='report-document' />
+                                            <Image src={apiURL + data.image} width={1000} height={1000} priority={true} alt='report-document' />
                                             <div className="document-overlay">
                                                 <Link href={apiURL + data.image} data-fancybox='' className='zoom-button'><FaMagnifyingGlass /></Link>
                                             </div>
