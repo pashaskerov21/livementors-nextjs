@@ -56,13 +56,15 @@ const EventInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, slu
         fetchData();
     }, []);
     useEffect(() => {
-        const newLocaleSlugs: LocaleStateType[] = dataState.event_translates.map((data) => {
-            return {
-                locale: data.lang,
-                slug: `events/${data.slug}`
-            }
-        });
-        dispatch(updateLocaleSlug(newLocaleSlugs));
+        if (dataState.event_translates.length === i18n.locales.length) {
+            const newLocaleSlugs: LocaleStateType[] = dataState.event_translates.map((data) => {
+                return {
+                    locale: data.lang,
+                    slug: `events/${data.slug}`
+                }
+            });
+            dispatch(updateLocaleSlug(newLocaleSlugs));
+        }
     }, [dispatch, dataState.event_translates])
     return (
         <>

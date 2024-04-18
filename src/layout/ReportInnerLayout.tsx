@@ -57,13 +57,15 @@ const ReportInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, sl
         fetchData();
     }, []);
     useEffect(() => {
-        const newLocaleSlugs: LocaleStateType[] = dataState.report_translates.map((data) => {
-            return {
-                locale: data.lang,
-                slug: `report/${data.slug}`
-            }
-        });
-        dispatch(updateLocaleSlug(newLocaleSlugs));
+        if(dataState.report_translates.length === i18n.locales.length){
+            const newLocaleSlugs: LocaleStateType[] = dataState.report_translates.map((data) => {
+                return {
+                    locale: data.lang,
+                    slug: `report/${data.slug}`
+                }
+            });
+            dispatch(updateLocaleSlug(newLocaleSlugs));
+        }
     }, [dataState.report_translates])
     return (
         <>
