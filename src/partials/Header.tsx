@@ -50,8 +50,8 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
                             <Link href={`/${activeLocale}`} className='header-logo' onClick={() => handleLinkClick(`/${activeLocale}`)}>
                                 {
                                     dataState.settings.logo ?
-                                        <Image src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
-                                        <Image src="/logo/header-logo.png" width={500} height={60} alt='logo' />
+                                        <img src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
+                                        <img src="/logo/header-logo.png" width={500} height={60} alt='logo' />
                                 }
                             </Link>
                         </div>
@@ -87,8 +87,8 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
                             <Link href={`/${activeLocale}`} className='header-logo' onClick={() => handleLinkClick(`/${activeLocale}`)}>
                                 {
                                     dataState.settings.logo ?
-                                        <Image src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
-                                        <Image src="/logo/header-logo.png" width={500} height={60} alt='logo' />
+                                        <img src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
+                                        <img src="/logo/header-logo.png" width={500} height={60} alt='logo' />
                                 }
                             </Link>
                         </div>

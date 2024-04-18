@@ -45,8 +45,8 @@ const Footer: React.FC<FooterProps> = ({ activeLocale, dictionary, dataState }) 
               <Link href={`/${activeLocale}`} className='footer-logo' onClick={() => handleLinkClick(`/${activeLocale}`)}>
                 {
                   dataState.settings.logo ?
-                    <Image src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
-                    <Image src="/logo/footer-logo.png" width={500} height={60} alt='logo' />
+                    <img src={apiURL + dataState.settings.logo} width={500} height={60} alt='logo' /> :
+                    <img src="/logo/footer-logo.png" width={500} height={60} alt='logo' />
                 }
               </Link>
               <div className="footer-text">

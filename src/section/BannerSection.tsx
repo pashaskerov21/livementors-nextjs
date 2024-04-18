@@ -57,7 +57,7 @@ const BannerSection: React.FC<SectionProps> = ({ activeLocale, className, banner
                             {
                                 data.type === 'photo' && data.file && (
                                     <div className="banner-slide">
-                                        <Image src={apiURL + data.file} width={2000} height={2000} priority={true} className='banner-image' alt='banner-image' />
+                                        <img src={apiURL + data.file} width={2000} height={2000} className='banner-image' alt='banner-image' />
                                         <div className="banner-content">
                                             <div className="container">
                                                 <div className="content-inner">

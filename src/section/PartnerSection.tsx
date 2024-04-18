@@ -24,7 +24,7 @@ const PartnerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, part
                     {partners.map((data) => (
                         data.image && (
                             <Link target='_blank' href={data.url ?? `/${activeLocale}`} key={data.id} className='partner-logo'>
-                                <Image src={apiURL + data.image} width={220} height={100} alt='partner-logo' />
+                                <img src={apiURL + data.image} width={220} height={100} alt='partner-logo' />
                             </Link>
                         )
                     ))}

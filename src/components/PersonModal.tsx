@@ -24,7 +24,7 @@ const PersonModal: React.FC<ModalProps> = ({ image, title, subtitle, text, close
                         {image && (
                             <div className="col-12 col-lg-4">
                                 <div className="image">
-                                    <Image src={apiURL + image} width={1000} height={1000} alt='' />
+                                    <img src={apiURL + image} width={1000} height={1000} alt='' />
                                 </div>
                             </div>
                         )}

@@ -41,7 +41,7 @@ const CommentSection: React.FC<SectionProps> = ({ activeLocale, comments, commen
                                 <div className="comment-card">
                                     {data.image && (
                                         <Link href={apiURL + data.image} className="comment-image" data-fancybox=''>
-                                            <Image src={apiURL + data.image} width={100} height={100} priority={true} alt='' />
+                                            <img src={apiURL + data.image} width={100} height={100} alt='' />
                                         </Link>
                                     )}
                                     <div className="comment-body">

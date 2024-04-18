@@ -47,7 +47,7 @@ const ImageHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ga
                     <SwiperSlide key={data.id}>
                         {data.type === 'image' && data.image && (
                             <div className="gallery-image">
-                                <Image src={apiURL + data.image} width={1000} height={1000} priority={true} alt='gallery_image' />
+                                <img src={apiURL + data.image} width={1000} height={1000} alt='gallery_image' />
                                 <div className="image-overlay">
                                     <Link href={apiURL + data.image} data-fancybox='event-gallery' className='zoom-button'><FaMagnifyingGlass /></Link>
                                 </div>
@@ -59,7 +59,7 @@ const ImageHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ga
                     <SwiperSlide key={data.id}>
                         {data.type === 'image' && data.image && (
                             <div className="gallery-image">
-                                <Image src={apiURL + data.image} width={1000} height={1000} priority={true} alt='gallery_image' />
+                                <img src={apiURL + data.image} width={1000} height={1000} alt='gallery_image' />
                                 <div className="image-overlay">
                                     <Link href={apiURL + data.image} data-fancybox='' className='zoom-button'><FaMagnifyingGlass /></Link>
                                 </div>

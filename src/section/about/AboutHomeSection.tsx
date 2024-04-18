@@ -21,7 +21,7 @@ const AboutHomeSection: React.FC<SectionProps> = ({ about, about_translates, act
                 <div className="author-row">
                     {about.author_image && (
                         <div className="author-image">
-                            <Image src={apiURL + about.author_image} width={80} height={80} alt='author-image' />
+                            <img src={apiURL + about.author_image} width={80} height={80} alt='author-image' />
                         </div>
                     )}
                     <div className="author-info">
@@ -34,7 +34,7 @@ const AboutHomeSection: React.FC<SectionProps> = ({ about, about_translates, act
                     </div>
                     {about.author_signature && (
                         <div className="author-signature">
-                            <Image src={apiURL + about.author_signature} width={300} height={150} alt='author-image' />
+                            <img src={apiURL + about.author_signature} width={300} height={150} alt='author-image' />
                         </div>
                     )}
                 </div>

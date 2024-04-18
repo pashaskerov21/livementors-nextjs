@@ -38,7 +38,7 @@ const AboutMainSection: React.FC<SectionProps> = ({ activeLocale, dataState }) =
                             data.image && (
                                 <div className="col-4" key={data.id}>
                                     <Link href={apiURL + data.image} data-fancybox='about-gallery' className='gallery-img'>
-                                        <Image src={apiURL + data.image} width={1000} height={1000} priority={true} alt='gallery-img' />
+                                        <img src={apiURL + data.image} width={1000} height={1000} alt='gallery-img' />
                                     </Link>
                                 </div>
                             )

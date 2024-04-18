@@ -71,9 +71,9 @@ const MentorHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, m
                             <div className="primary-card mentor" onClick={() => showModal(data)}>
                                 {data.image && (
                                     <div className="card-image">
-                                        <Image className='main-image' src={apiURL + data.image} width={2000} height={2000} priority={true} alt='card-image' />
+                                        <img className='main-image' src={apiURL + data.image} width={2000} height={2000} alt='card-image' />
                                         <div className="image-overlay">
-                                            <Image className='overlay-icon' src='/icon/icon-large.png' width={60} height={60} alt='large-icon' />
+                                            <img className='overlay-icon' src='/icon/icon-large.png' width={60} height={60} alt='large-icon' />
                                         </div>
                                     </div>
                                 )}
