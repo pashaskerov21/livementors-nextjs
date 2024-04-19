@@ -5,6 +5,7 @@ import { LocaleType } from '@/src/types/general/type'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { FaMagnifyingGlass } from 'react-icons/fa6'
 
 type SectionProps = {
     activeLocale: LocaleType,
@@ -39,6 +40,9 @@ const AboutMainSection: React.FC<SectionProps> = ({ activeLocale, dataState }) =
                                 <div className="col-4" key={data.id}>
                                     <Link href={apiURL + data.image} data-fancybox='about-gallery' className='gallery-img'>
                                         <img src={apiURL + data.image} width={1000} height={1000} alt='gallery-img' />
+                                        <div className="image-overlay">
+                                            <Link href={apiURL + data.image} data-fancybox='' className='zoom-button'><FaMagnifyingGlass /></Link>
+                                        </div>
                                     </Link>
                                 </div>
                             )

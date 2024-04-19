@@ -76,9 +76,9 @@ const ReportHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, r
                                         href={`/${activeLocale}/report/${site.getReportTranslate(data.id, "slug", activeLocale, report_translates)}`}
                                         onClick={() => handleLinkClick(`/${activeLocale}/report/${site.getReportTranslate(data.id, "slug", activeLocale, report_translates)}`)}
                                         className="card-image">
-                                        <Image className='main-image' src={apiURL + data.card_image} width={2000} height={2000} priority={true} alt='card-image' />
+                                        <img className='main-image' src={apiURL + data.card_image} width={2000} height={2000} alt='card-image' />
                                         <div className="image-overlay">
-                                            <Image className='overlay-icon' src='/icon/icon-large.png' width={60} height={60} alt='large-icon' />
+                                            <img className='overlay-icon' src='/icon/icon-large.png' width={60} height={60} alt='large-icon' />
                                         </div>
                                     </Link>
                                 )}

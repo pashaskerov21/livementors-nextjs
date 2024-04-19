@@ -24,7 +24,7 @@ const ReportInnerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, 
             <div className="container">
                 {dataState.report.banner_image && (
                     <div className="report-banner-image">
-                        <Image src={apiURL + dataState.report.banner_image} width={1400} height={350} priority={true} alt='report-banner-image' />
+                        <img src={apiURL + dataState.report.banner_image} width={1400} height={350} alt='report-banner-image' />
                     </div>
                 )}
                 <div className="report-content">
@@ -58,7 +58,7 @@ const ReportInnerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, 
                                             {
                                                 data.type === 'photo' && data.image && (
                                                     <div className="gallery-image">
-                                                        <Image src={apiURL + data.image} width={1000} height={1000} alt='' priority={true} />
+                                                        <img src={apiURL + data.image} width={1000} height={1000} alt='' />
                                                         <div className="image-overlay">
                                                             <Link href={apiURL + data.image} data-fancybox='event-gallery' className='zoom-button'><FaMagnifyingGlass /></Link>
                                                         </div>
@@ -87,7 +87,7 @@ const ReportInnerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, 
                                     )}
                                     {data.type === 'photo' && data.image && (
                                         <>
-                                            <Image src={apiURL + data.image} width={1000} height={1000} priority={true} alt='report-document' />
+                                            <img src={apiURL + data.image} width={1000} height={1000} alt='report-document' />
                                             <div className="document-overlay">
                                                 <Link href={apiURL + data.image} data-fancybox='' className='zoom-button'><FaMagnifyingGlass /></Link>
                                             </div>
