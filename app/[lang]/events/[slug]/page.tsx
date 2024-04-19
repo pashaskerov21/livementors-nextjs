@@ -21,13 +21,13 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
 
         return {
             metadataBase: new URL(`${apiURL}`),
-            title: response.title ?? 'Livementors',
+            title: response.title ? `Livementors | ${response.title}` : 'Livementors',
             description: response.description ?? 'Livementors',
             keywords: response.keywords ?? 'Livementors',
             openGraph: {
                 type: "website",
-                title: response.title ?? 'Livementors',
-                siteName: response.title ?? 'Livementors',
+                title: response.title ? `Livementors | ${response.title}` : 'Livementors',
+                siteName: response.title ? `Livementors | ${response.title}` : 'Livementors',
                 description: response.description ?? 'Livementors',
             }
         }
