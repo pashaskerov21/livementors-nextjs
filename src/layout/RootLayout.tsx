@@ -88,7 +88,7 @@ const RootLayout: React.FC<LayoutProps> = ({ activeLocale, children, dictionary 
                     <div className="social-icons">
                         <Link target='_blank' href={dataState.settings.whatsapp ?? ''} className='icon wp'><FaWhatsapp /></Link>
                         <Link target='_blank' href={dataState.settings.email ? `mailto:${dataState.settings.email}` : ''} className='icon msg'><FaEnvelope /></Link>
-                        <Link target='_blank' href={dataState.settings.telegram ?? ''} className='icon tg'><FaTelegramPlane /></Link>
+                        {dataState.settings.telegram && <Link target='_blank' href={dataState.settings.telegram ?? ''} className='icon tg'><FaTelegramPlane /></Link>}
                     </div>
                 )}
                 <button className='open-toolbar-button' onClick={toggleToolbar}><FaCommentDots /></button>
