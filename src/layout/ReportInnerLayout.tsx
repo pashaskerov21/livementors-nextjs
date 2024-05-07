@@ -57,7 +57,7 @@ const ReportInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, sl
         fetchData();
     }, []);
     useEffect(() => {
-        if(dataState.report_translates.length === i18n.locales.length){
+        if (dataState.report_translates.length === i18n.locales.length) {
             const newLocaleSlugs: LocaleStateType[] = dataState.report_translates.map((data) => {
                 return {
                     locale: data.lang,
@@ -68,13 +68,13 @@ const ReportInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, sl
         }
     }, [dataState.report_translates])
     return (
-        <>
+        <main>
             <ReportInnerSection
                 activeLocale={activeLocale}
                 dictionary={dictionary}
                 dataState={dataState}
             />
-        </>
+        </main>
     )
 }
 

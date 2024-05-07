@@ -67,7 +67,7 @@ const EventInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, slu
         }
     }, [dispatch, dataState.event_translates])
     return (
-        <>
+        <main>
             {dataState.event.id && dataState.event_translate.title && (
                 <EventInnerSection
                     activeLocale={activeLocale}
@@ -82,7 +82,7 @@ const EventInnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary, slu
                     event_gallery={dataState.event_gallery}
                 />
             )}
-        </>
+        </main>
     )
 }
 

@@ -51,7 +51,7 @@ const ContactLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     }, []);
 
     return (
-        <>
+        <main className='primary-bg'>
             {loading && (
                 <div className="preloader">
                     <div className="preloader-icon"></div>
@@ -69,7 +69,7 @@ const ContactLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                 dictionary={dictionary}
                 dataState={dataState}
             />
-        </>
+        </main>
     )
 }
 

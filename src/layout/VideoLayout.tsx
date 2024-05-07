@@ -44,7 +44,7 @@ const VideoLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
         fetchData();
     }, []);
     return (
-        <>
+        <main>
             {dataState.gallery_videos.length > 0 && (
                 <VideoMainSection
                     activeLocale={activeLocale}
@@ -52,7 +52,7 @@ const VideoLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                     gallery_videos={dataState.gallery_videos}
                 />
             )}
-        </>
+        </main>
     )
 }
 

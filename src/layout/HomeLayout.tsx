@@ -7,6 +7,7 @@ import { updateLocaleSlug } from '../redux/actions/LocaleAction'
 import { AboutDataType, HomeLayoutDataType, SettingDataType } from '../types/data/type'
 import Site from '../class/Site'
 import { AboutHomeSection, BannerSection, CommentSection, EventHomeSection, ImageHomeSection, MentorHomeSection, PartnerSection, ReportHomeSection, TimerSection, VideoHomeSection } from '../section'
+import Link from 'next/link'
 
 type LayoutProps = {
     activeLocale: LocaleType,
@@ -78,7 +79,7 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     }, [])
 
     return (
-        <>
+        <main>
             {loading && (
                 <div className="preloader">
                     <div className="preloader-icon"></div>
@@ -99,6 +100,9 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                     settings={dataState.settings}
                 />
             )}
+            <div className="d-flex justify-content-center align-items-center mt-3 d-lg-none">
+                <Link href={`/${activeLocale}/contact`} className='register-button'>{dictionary['qeydiyyatdan_kec']}</Link>
+            </div>
             {dataState.about_translates.length > 0 && (
                 <AboutHomeSection
                     about={dataState.about}
@@ -158,7 +162,7 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                     gallery_images={dataState.gallery_images}
                 />
             )}
-        </>
+        </main>
     )
 }
 

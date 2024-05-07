@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { LocaleType } from '../types/general/type'
 import { SettingDataType } from '../types/data/type'
 import moment from 'moment'
+import Link from 'next/link'
 
 type SectionProps = {
     activeLocale: LocaleType,
@@ -89,6 +90,7 @@ const TimerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, settin
                                 <div className="item-label">{dictionary['hour']}</div>
                             </div>
                         </div>
+                        <Link href={`/${activeLocale}/contact`} className='register-button d-none d-lg-flex'>{dictionary['qeydiyyatdan_kec']}</Link>
                     </div>
                 </div>
             </div>

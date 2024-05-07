@@ -64,7 +64,7 @@ const AboutLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     fetchData();
   }, []);
   return (
-    <>
+    <main className='primary-bg'>
       {loading && (
         <div className="preloader">
           <div className="preloader-icon"></div>
@@ -87,7 +87,7 @@ const AboutLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
           dataState={dataState}
         />
       )}
-    </>
+    </main>
   )
 }
 

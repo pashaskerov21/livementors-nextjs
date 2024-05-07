@@ -51,7 +51,7 @@ const ReportLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     }, []);
 
     return (
-        <>
+        <main className='primary-bg'>
             {loading && (
                 <div className="preloader">
                     <div className="preloader-icon"></div>
@@ -72,7 +72,7 @@ const ReportLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                     report_translates={dataState.report_translates}
                 />
             )}
-        </>
+        </main>
     )
 }
 

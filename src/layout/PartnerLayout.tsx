@@ -49,7 +49,7 @@ const PartnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     }, []);
 
     return (
-        <>
+        <main className='primary-bg'>
             {loading && (
                 <div className="preloader">
                     <div className="preloader-icon"></div>
@@ -69,7 +69,7 @@ const PartnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                     partners={dataState.partners}
                 />
             )}
-        </>
+        </main>
     )
 }
 

@@ -93,9 +93,9 @@ const RootLayout: React.FC<LayoutProps> = ({ activeLocale, children, dictionary 
                 )}
                 <button className='open-toolbar-button' onClick={toggleToolbar}><FaCommentDots /></button>
             </div>
-            {dataState.menues.length > 0 && <Header activeLocale={activeLocale} dictionary={dictionary} dataState={dataState} fixed={fixed} />}
-            <main>{children}</main>
-            {dataState.menues.length > 0 && <Footer activeLocale={activeLocale} dictionary={dictionary} dataState={dataState} />}
+            <Header activeLocale={activeLocale} dictionary={dictionary} dataState={dataState} fixed={fixed} />
+            {children}
+            <Footer activeLocale={activeLocale} dictionary={dictionary} dataState={dataState} />
         </Provider>
     )
 }
