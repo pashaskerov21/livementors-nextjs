@@ -70,6 +70,7 @@ type BannerDataType = {
     file: string | null,
     type: "photo" | "video",
     page: number,
+    content_status: number,
     order: number,
 }
 type BannerTranslateDataType = {
