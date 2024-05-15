@@ -28,14 +28,21 @@ const ContactSection: React.FC<SectionProps> = ({ activeLocale, dataState, dicti
     };
     const validationSchema = Yup.object({
         fullname: Yup.string().required(),
-        email: Yup.string().email().required(),
+        // email: Yup.string().email().required(),
         phone: Yup.string().required(),
-        subject: Yup.string().required(),
-        text: Yup.string().required(),
+        // subject: Yup.string().required(),
+        // text: Yup.string().required(),
     });
     const onSubmit = async (values: MessageRequestDataType, actions: FormikHelpers<MessageRequestDataType>) => {
         try {
-            const response = await site.message_store(values);
+            const data = {
+                fullname: values.fullname,
+                phone: values.phone,
+                email: '',
+                subject: '',
+                text: '',
+            }
+            const response = await site.message_store(data);
             if (response === 'message_success') {
                 Swal.fire({
                     icon: "success",
@@ -73,7 +80,7 @@ const ContactSection: React.FC<SectionProps> = ({ activeLocale, dataState, dicti
                                             <Field type="text" name="phone" className={`form-control ${formik.errors['phone'] && formik.touched['phone'] ? 'is-invalid' : ''}`} id="contact_number" placeholder={`${dictionary['contact_number']} *`} />
                                             <label htmlFor="contact_number">{dictionary['contact_number']} *</label>
                                         </div>
-                                        <div className="form-floating">
+                                        {/* <div className="form-floating">
                                             <Field type="email" name="email" className={`form-control ${formik.errors['email'] && formik.touched['email'] ? 'is-invalid' : ''}`} id="email_address" placeholder={`${dictionary['email_address']} *`} />
                                             <label htmlFor="email_address">{dictionary['email_address']} *</label>
                                         </div>
@@ -84,7 +91,7 @@ const ContactSection: React.FC<SectionProps> = ({ activeLocale, dataState, dicti
                                         <div className="form-floating">
                                             <Field as="textarea" name="text" className={`form-control ${formik.errors['text'] && formik.touched['text'] ? 'is-invalid' : ''}`} id='note' placeholder={`${dictionary['note']} *`}></Field>
                                             <label htmlFor="note">{dictionary['note']} *</label>
-                                        </div>
+                                        </div> */}
                                         <button type='submit' className="submit-button">{dictionary['send']}</button>
                                     </Form>
                                 )

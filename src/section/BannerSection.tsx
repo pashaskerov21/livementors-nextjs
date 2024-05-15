@@ -54,15 +54,18 @@ const BannerSection: React.FC<SectionProps> = ({ activeLocale, className, banner
                     banners.map((data) => (
                         <SwiperSlide key={data.id}>
                             <div className="banner-slide">
-                                {data.type === 'photo' && data.file && (
+                                {(data.type === 'photo' && data.file) ? (
                                     <img src={apiURL + data.file} width={2000} height={2000} className='banner-image' alt='banner-image' />
-                                )}
-                                {data.type === 'video' && data.file && (
-                                    <video loop muted autoPlay playsInline>
-                                        <source src={apiURL + data.file} type="video/mp4" />
-                                    </video>
-                                )}
-                                {data.content_status && (
+                                ) : null}
+                                {(data.type === 'video' && data.file) ? (
+                                    <>
+                                        <video loop muted autoPlay playsInline>
+                                            <source src={apiURL + data.file} type="video/mp4" />
+                                        </video>
+                                        <img src='/bg/banner-1.png' width={2000} height={2000} className='banner-image opacity-0' alt='banner-image' />
+                                    </>
+                                ) : null}
+                                {data.content_status ? (
                                     <div className="banner-content">
                                         <div className="container">
                                             <div className="content-inner">
@@ -73,7 +76,7 @@ const BannerSection: React.FC<SectionProps> = ({ activeLocale, className, banner
                                             </div>
                                         </div>
                                     </div>
-                                )}
+                                ) : null}
                             </div>
                         </SwiperSlide>
                     ))
