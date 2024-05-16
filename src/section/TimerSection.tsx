@@ -48,7 +48,7 @@ const TimerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, settin
                     minute: minutes,
                     second: seconds,
                 });
-    
+
                 if (difference < 0) {
                     clearInterval(x);
                     setTimerState({
@@ -67,33 +67,46 @@ const TimerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, settin
     }, [settings.timer_date]);
     return (
         <section className="timer-section">
-            <div className="container">
-                <div className="row">
-                    <div className="col-6">
-                        <div className="content">
-                            <div className="title">{dictionary['join_conference']}</div>
-                            <div className="subtitle">we save lives</div>
+            <div className="timer-inner">
+                <div className="left">
+                    <div className="content">
+                        <div className="title">{dictionary['join_conference']}</div>
+                        <div className="subtitle">we save lives</div>
+                    </div>
+                </div>
+                <div className="right">
+                    <div className="timer">
+                        <div className="date-item">
+                            <div className="item-value">{timerState.month}</div>
+                            <div className="item-label">{dictionary['month']}</div>
+                        </div>
+                        <div className="date-item">
+                            <div className="item-value">{timerState.day}</div>
+                            <div className="item-label">{dictionary['day']}</div>
+                        </div>
+                        <div className="date-item">
+                            <div className="item-value">{timerState.hour}</div>
+                            <div className="item-label">{dictionary['hour']}</div>
                         </div>
                     </div>
-                    <div className="col-6">
-                        <div className="timer">
-                            <div className="date-item">
-                                <div className="item-value">{timerState.month}</div>
-                                <div className="item-label">{dictionary['month']}</div>
-                            </div>
-                            <div className="date-item">
-                                <div className="item-value">{timerState.day}</div>
-                                <div className="item-label">{dictionary['day']}</div>
-                            </div>
-                            <div className="date-item">
-                                <div className="item-value">{timerState.hour}</div>
-                                <div className="item-label">{dictionary['hour']}</div>
-                            </div>
-                        </div>
-                        <Link href={`/${activeLocale}/contact`} className='register-button d-none d-lg-flex'>{dictionary['qeydiyyatdan_kec']}</Link>
+                    <div className="d-none d-lg-flex justify-content-end align-items-center gap-3 me-5">
+                        <Link href={`/${activeLocale}/contact`} className='primary-button'>{dictionary['qeydiyyatdan_kec']}</Link>
+                        <Link href={`/${activeLocale}/`} className='primary-button'>{dictionary['daha_etrafli']}</Link>
                     </div>
                 </div>
             </div>
+            {/* <div className="container">
+                
+                <div className="row">
+                    <div className="col-6 col-lg-3">
+
+                    </div>
+                    <div className="col-6 col-lg-9">
+
+                        
+                    </div>
+                </div>
+            </div> */}
         </section>
     )
 }

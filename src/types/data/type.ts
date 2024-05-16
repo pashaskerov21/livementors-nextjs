@@ -68,6 +68,7 @@ type FaqTranslateDataType = {
 type BannerDataType = {
     id: number,
     file: string | null,
+    url: string | null,
     type: "photo" | "video",
     page: number,
     content_status: number,
@@ -85,6 +86,7 @@ type AboutDataType = {
     id: number,
     author_image: string | null,
     author_signature: string | null,
+    conference_poster: string | null,
 }
 type AboutTranslateDataType = {
     id: number,

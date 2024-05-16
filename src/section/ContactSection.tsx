@@ -62,7 +62,7 @@ const ContactSection: React.FC<SectionProps> = ({ activeLocale, dataState, dicti
         <section className="contact-section">
             <div className="container">
                 <div className="row">
-                    <div className="col-12 col-lg-6">
+                    <div className="col-12 col-lg-5">
                         <Formik
                             initialValues={initialValues}
                             validationSchema={validationSchema}
@@ -98,7 +98,7 @@ const ContactSection: React.FC<SectionProps> = ({ activeLocale, dataState, dicti
                             }
                         </Formik>
                     </div>
-                    <div className="col-12 col-lg-6">
+                    <div className="col-12 col-lg-7">
                         <div className="contact-info-wrapper">
                             <div className="contact-item">
                                 <div className="icon"><FaPhone /></div>

@@ -5,6 +5,7 @@ import { BannerDataType, BannerTranslateDataType } from '../types/data/type'
 import Site from '../class/Site';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
+import Link from 'next/link';
 
 
 type SectionProps = {
@@ -38,7 +39,7 @@ const BannerSection: React.FC<SectionProps> = ({ activeLocale, className, banner
                 className='banner-swiper'
                 loop={true}
                 autoplay={{
-                    delay: 10000,
+                    delay: 15000,
                     stopOnLastSlide: true,
                     disableOnInteraction: false,
                     pauseOnMouseEnter: true,
@@ -53,7 +54,7 @@ const BannerSection: React.FC<SectionProps> = ({ activeLocale, className, banner
                 {
                     banners.map((data) => (
                         <SwiperSlide key={data.id}>
-                            <div className="banner-slide">
+                            <Link href={data.url ?? `/${activeLocale}`} className="banner-slide">
                                 {(data.type === 'photo' && data.file) ? (
                                     <img src={apiURL + data.file} width={2000} height={2000} className='banner-image' alt='banner-image' />
                                 ) : null}
@@ -77,7 +78,7 @@ const BannerSection: React.FC<SectionProps> = ({ activeLocale, className, banner
                                         </div>
                                     </div>
                                 ) : null}
-                            </div>
+                            </Link>
                         </SwiperSlide>
                     ))
                 }

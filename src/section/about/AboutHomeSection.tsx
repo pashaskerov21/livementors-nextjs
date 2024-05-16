@@ -3,7 +3,6 @@ import React from 'react'
 import { LocaleType } from '../../types/general/type'
 import { AboutDataType, AboutTranslateDataType } from '../../types/data/type'
 import Site from '../../class/Site'
-import Image from 'next/image'
 
 type SectionProps = {
     activeLocale: LocaleType,

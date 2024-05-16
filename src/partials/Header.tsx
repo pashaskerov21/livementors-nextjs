@@ -99,6 +99,8 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
                                         {site.getMenuTranslate(data.id, "title", activeLocale, dataState.menu_translates)}
                                     </Link>
                                 ))}
+                                <Link href=''>Konfrans 2024</Link>
+                                <Link href=''>Poster müsabiqəsi</Link>
                             </div>
                         </div>
                         <div className="col-2 d-flex justify-content-end align-items-end gap-4">

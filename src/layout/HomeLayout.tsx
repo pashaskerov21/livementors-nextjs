@@ -6,7 +6,7 @@ import { i18n } from '@/i18n-config'
 import { updateLocaleSlug } from '../redux/actions/LocaleAction'
 import { AboutDataType, HomeLayoutDataType, SettingDataType } from '../types/data/type'
 import Site from '../class/Site'
-import { AboutHomeSection, BannerSection, CommentSection, EventHomeSection, ImageHomeSection, MentorHomeSection, PartnerSection, ReportHomeSection, TimerSection, VideoHomeSection } from '../section'
+import { AboutHomeSection, AboutHomeSection2, BannerSection, CommentSection, EventHomeSection, ImageHomeSection, MentorHomeSection, PartnerSection, ReportHomeSection, TimerSection, VideoHomeSection } from '../section'
 import Link from 'next/link'
 
 type LayoutProps = {
@@ -15,6 +15,7 @@ type LayoutProps = {
 }
 
 const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
+    const apiURL = process.env.API_URL;
     const dispatch = useDispatch();
     const [loading, setLoading] = useState<boolean>(true);
     const localeSlugs: LocaleStateType[] = i18n.locales.map((locale) => {
@@ -93,6 +94,11 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                     banner_translates={dataState.banner_translates}
                 />
             )}
+            {dataState.about.conference_poster ? (
+                <Link href={`/${activeLocale}`} className='conference-poster'>
+                    <img src={apiURL + dataState.about.conference_poster} width={1440} height={240} alt="" />
+                </Link>
+            ) : null}
             {dataState.settings.timer_date && (
                 <TimerSection
                     activeLocale={activeLocale}
@@ -100,14 +106,18 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                     settings={dataState.settings}
                 />
             )}
-            <div className="d-flex justify-content-center align-items-center mt-3 d-lg-none">
-                <Link href={`/${activeLocale}/contact`} className='register-button'>{dictionary['qeydiyyatdan_kec']}</Link>
+            <div className="mt-3 d-lg-none">
+                <div className="container d-flex justify-content-center align-items-center flex-wrap gap-3">
+                    <Link href={`/${activeLocale}/contact`} className='primary-button'>{dictionary['qeydiyyatdan_kec']}</Link>
+                    <Link href={`/${activeLocale}/`} className='primary-button'>{dictionary['daha_etrafli']}</Link>
+                </div>
             </div>
             {dataState.about_translates.length > 0 && (
-                <AboutHomeSection
+                <AboutHomeSection2
                     about={dataState.about}
                     about_translates={dataState.about_translates}
                     activeLocale={activeLocale}
+                    dictionary={dictionary}
                 />
             )}
             {dataState.events.length > 0 && dataState.event_translates.length > 0 && (

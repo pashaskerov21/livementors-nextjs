@@ -18,7 +18,6 @@ import Footer from '../partials/Footer';
 import { FaArrowUp, FaCommentDots, FaEnvelope, FaRegComments, FaWhatsapp } from 'react-icons/fa6';
 import { FaTelegramPlane } from "react-icons/fa";
 import Link from 'next/link';
-import Image from 'next/image';
 
 type LayoutProps = {
     children: React.ReactNode,

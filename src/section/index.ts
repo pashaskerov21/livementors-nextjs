@@ -1,6 +1,7 @@
 import BannerSection from "./BannerSection";
 import TimerSection from "./TimerSection";
 import AboutHomeSection from "./about/AboutHomeSection";
+import AboutHomeSection2 from "./about/AboutHomeSection2";
 import EventHomeSection from "./events/EventHomeSection";
 import EventMainSection from "./events/EventMainSection";
 import EventInnerSection from "./events/EventInnerSection";
@@ -23,6 +24,7 @@ export {
     BannerSection,
     TimerSection,
     AboutHomeSection,
+    AboutHomeSection2,
     AboutMainSection,
     EventHomeSection,
     EventMainSection,
