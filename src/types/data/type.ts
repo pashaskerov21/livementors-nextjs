@@ -43,6 +43,7 @@ type SettingTranslateDataType = {
 type MenuDataType = {
     id: number,
     slug: string,
+    status: number,
     order: number,
 }
 type MenuTranslateDataType = {

@@ -95,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
                         <div className="col-8 d-flex justify-content-center align-items-end">
                             <div className="nav-links">
                                 {dataState.menues.length > 0 && dataState.menues.map((data) => (
-                                    <Link key={data.id} href={`/${activeLocale}/${data.slug}`} className={pathName === `/${activeLocale}/${data.slug}` ? 'active' : ''} onClick={() => handleLinkClick(`/${activeLocale}/${data.slug}`)}>
+                                    <Link key={data.id} href={data.status === 0 ? `/${activeLocale}/${data.slug}` : data.slug} className={pathName === `/${activeLocale}/${data.slug}` ? 'active' : ''} onClick={() => handleLinkClick(`/${activeLocale}/${data.slug}`)}>
                                         {site.getMenuTranslate(data.id, "title", activeLocale, dataState.menu_translates)}
                                     </Link>
                                 ))}
