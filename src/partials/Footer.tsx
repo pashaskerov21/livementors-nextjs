@@ -74,8 +74,8 @@ const Footer: React.FC<FooterProps> = ({ activeLocale, dictionary, dataState }) 
               <h4 className="col-title">{dictionary['contact']}</h4>
               <div className="contact-links">
                 <Link target='_blank' href={`mailto:${dataState.settings.email}`}><FaEnvelope /><span>{dataState.settings.email}</span></Link>
-                <Link target='_blank' href={``}><FaPhone /><span>{dataState.settings.phone}</span></Link>
-                <Link target='_blank' href={dataState.settings.address_url ?? ''}><FaLocationDot /><span>{site.getSettingTranslate(1, "address_text", activeLocale, dataState.setting_translates)}</span></Link>
+                <Link target='_blank' href={`tel:${dataState.settings.phone}`}><FaPhone /><span>{dataState.settings.phone}</span></Link>
+                <Link target='_blank' href={`/${activeLocale}`}><FaLocationDot /><span>{site.getSettingTranslate(1, "address_text", activeLocale, dataState.setting_translates)}</span></Link>
                 <Link href={`/${activeLocale}/contact`} onClick={() => handleLinkClick(`/${activeLocale}/contact`)}><FaListCheck /> <span>{dictionary['apply']}</span></Link>
               </div>
             </div>

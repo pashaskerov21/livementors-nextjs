@@ -62,7 +62,7 @@ const ContactSection: React.FC<SectionProps> = ({ activeLocale, dataState, dicti
         <section className="contact-section">
             <div className="container">
                 <div className="row">
-                    <div className="col-12 col-lg-5">
+                    <div className="col-12">
                         <Formik
                             initialValues={initialValues}
                             validationSchema={validationSchema}
@@ -72,14 +72,25 @@ const ContactSection: React.FC<SectionProps> = ({ activeLocale, dataState, dicti
                                 formik => (
                                     <Form className='contact-form'>
                                         <h3 className="title">{dictionary['application_form']}</h3>
-                                        <div className="form-floating">
-                                            <Field type="text" name="fullname" className={`form-control ${formik.errors['fullname'] && formik.touched['fullname'] ? 'is-invalid' : ''}`} id="fullname" placeholder={`${dictionary['fullname']} *`} />
-                                            <label htmlFor="fullname">{dictionary['fullname']} *</label>
+                                        <div className="row mb-4">
+                                            <div className="col-12 col-md-6 p-0 pe-md-3 mb-4">
+                                                <div className="form-floating">
+                                                    <Field type="text" name="fullname" className={`form-control ${formik.errors['fullname'] && formik.touched['fullname'] ? 'is-invalid' : ''}`} id="fullname" placeholder={`${dictionary['fullname']} *`} />
+                                                    <label htmlFor="fullname">{dictionary['fullname']} *</label>
+                                                </div>
+                                            </div>
+                                            <div className="col-12 col-md-6 p-0 ps-md-3 mb-4">
+                                                <div className="form-floating">
+                                                    <Field type="text" name="phone" className={`form-control ${formik.errors['phone'] && formik.touched['phone'] ? 'is-invalid' : ''}`} id="contact_number" placeholder={`${dictionary['contact_number']} *`} />
+                                                    <label htmlFor="contact_number">{dictionary['contact_number']} *</label>
+                                                </div>
+                                            </div>
+                                            <div className="col-12 p-0 d-flex justify-content-end align-items-center">
+                                                <button type='submit' className="submit-button">{dictionary['send']}</button>
+                                            </div>
                                         </div>
-                                        <div className="form-floating">
-                                            <Field type="text" name="phone" className={`form-control ${formik.errors['phone'] && formik.touched['phone'] ? 'is-invalid' : ''}`} id="contact_number" placeholder={`${dictionary['contact_number']} *`} />
-                                            <label htmlFor="contact_number">{dictionary['contact_number']} *</label>
-                                        </div>
+
+
                                         {/* <div className="form-floating">
                                             <Field type="email" name="email" className={`form-control ${formik.errors['email'] && formik.touched['email'] ? 'is-invalid' : ''}`} id="email_address" placeholder={`${dictionary['email_address']} *`} />
                                             <label htmlFor="email_address">{dictionary['email_address']} *</label>
@@ -92,27 +103,25 @@ const ContactSection: React.FC<SectionProps> = ({ activeLocale, dataState, dicti
                                             <Field as="textarea" name="text" className={`form-control ${formik.errors['text'] && formik.touched['text'] ? 'is-invalid' : ''}`} id='note' placeholder={`${dictionary['note']} *`}></Field>
                                             <label htmlFor="note">{dictionary['note']} *</label>
                                         </div> */}
-                                        <button type='submit' className="submit-button">{dictionary['send']}</button>
                                     </Form>
                                 )
                             }
                         </Formik>
                     </div>
-                    <div className="col-12 col-lg-7">
+                    <div className="col-12">
                         <div className="contact-info-wrapper">
-                            <div className="contact-item">
+                            <a href={`tel:${dataState.settings.phone}`} className="contact-item">
                                 <div className="icon"><FaPhone /></div>
                                 <div className="value">{dictionary['tel']}: {dataState.settings.phone}</div>
-                            </div>
-                            <div className="contact-item">
+                            </a>
+                            <a href={`mailto:${dataState.settings.email}`} className="contact-item">
                                 <div className="icon"><FaEnvelope /></div>
                                 <div className="value">{dataState.settings.email}</div>
-                            </div>
-                            <div className="contact-item">
+                            </a>
+                            <a href={`/${activeLocale}`} className="contact-item">
                                 <div className="icon"><FaLocationDot /></div>
                                 <div className="value">{site.getSettingTranslate(1, "address_text", activeLocale, dataState.setting_translates)}</div>
-                                <SocialMedia settings={dataState.settings} />
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>

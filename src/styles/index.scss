@@ -1647,9 +1647,10 @@ footer {
     }
     .contact-form{
         width: 100%;
-        @include column-align-start;
+        @include column-center;
         gap: 30px;
         .title{
+            width: 100%;
             font-weight: 600;
         }
         .form-floating{
@@ -1691,6 +1692,11 @@ footer {
         background-color: $secondary-color;
         @include column-center;
         gap: 60px;
+        border-top: 8px solid $primary-color;
+        @media (min-width: 992px){
+            @include row-between;
+            gap: 30px;
+        }
         .contact-item{
             width: 100%;
             max-width: 350px;

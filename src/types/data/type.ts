@@ -88,6 +88,8 @@ type AboutDataType = {
     author_image: string | null,
     author_signature: string | null,
     conference_poster: string | null,
+    register_link: string | null,
+    details_link: string | null,
 }
 type AboutTranslateDataType = {
     id: number,

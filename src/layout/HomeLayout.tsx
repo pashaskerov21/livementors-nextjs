@@ -104,12 +104,13 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                     activeLocale={activeLocale}
                     dictionary={dictionary}
                     settings={dataState.settings}
+                    about={dataState.about}
                 />
             )}
             <div className="mt-3 d-lg-none">
                 <div className="container d-flex justify-content-center align-items-center flex-wrap gap-3">
-                    <Link href={`/${activeLocale}/contact`} className='primary-button'>{dictionary['qeydiyyatdan_kec']}</Link>
-                    <Link href={`/${activeLocale}/`} className='primary-button'>{dictionary['daha_etrafli']}</Link>
+                    {dataState.about.register_link && <Link href={dataState.about.register_link} className='primary-button'>{dictionary['qeydiyyat']}</Link>}
+                    {dataState.about.details_link && <Link href={dataState.about.details_link} className='primary-button'>{dictionary['daha_etrafli']}</Link>}
                 </div>
             </div>
             {dataState.about_translates.length > 0 && (

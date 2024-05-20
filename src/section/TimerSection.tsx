@@ -1,17 +1,18 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import { LocaleType } from '../types/general/type'
-import { SettingDataType } from '../types/data/type'
+import { AboutDataType, SettingDataType } from '../types/data/type'
 import moment from 'moment'
 import Link from 'next/link'
 
 type SectionProps = {
     activeLocale: LocaleType,
     dictionary: { [key: string]: string },
-    settings: SettingDataType
+    settings: SettingDataType,
+    about: AboutDataType,
 }
 
-const TimerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, settings }) => {
+const TimerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, settings, about }) => {
     const [timerState, setTimerState] = useState<{
         month: number,
         day: number,
@@ -90,23 +91,11 @@ const TimerSection: React.FC<SectionProps> = ({ activeLocale, dictionary, settin
                         </div>
                     </div>
                     <div className="d-none d-lg-flex justify-content-end align-items-center gap-3 me-5">
-                        <Link href={`/${activeLocale}/contact`} className='primary-button'>{dictionary['qeydiyyatdan_kec']}</Link>
-                        <Link href={`/${activeLocale}/`} className='primary-button'>{dictionary['daha_etrafli']}</Link>
+                        {about.register_link && <Link href={about.register_link} className='primary-button'>{dictionary['qeydiyyat']}</Link>}
+                        {about.details_link && <Link href={about.details_link} className='primary-button'>{dictionary['daha_etrafli']}</Link>}
                     </div>
                 </div>
             </div>
-            {/* <div className="container">
-                
-                <div className="row">
-                    <div className="col-6 col-lg-3">
-
-                    </div>
-                    <div className="col-6 col-lg-9">
-
-                        
-                    </div>
-                </div>
-            </div> */}
         </section>
     )
 }
