@@ -63,7 +63,7 @@ const BannerSection: React.FC<SectionProps> = ({ activeLocale, className, banner
                                         <video loop muted autoPlay playsInline>
                                             <source src={apiURL + data.file} type="video/mp4" />
                                         </video>
-                                        <img src='/bg/banner-1.png' width={2000} height={2000} className='banner-image opacity-0' alt='banner-image' />
+                                        <img src='/bg/banner-default.png' width={2000} height={2000} className='banner-image opacity-0' alt='banner-image' />
                                     </>
                                 ) : null}
                                 {data.content_status ? (

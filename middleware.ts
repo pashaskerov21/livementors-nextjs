@@ -40,6 +40,7 @@ export function middleware(request: NextRequest) {
       '/bg/comment-bg-1.png',
       '/bg/comment-bg-2.jpg',
       '/bg/banner-1.png',
+      '/bg/banner-default.png',
       '/icon/icon-large.png',
       '/icon/conversation.png',
       // Your other files in `public`
