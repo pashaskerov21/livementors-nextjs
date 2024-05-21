@@ -53,7 +53,7 @@ const ContactLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
 
     return (
         <main className={`primary-bg ${loading ? 'd-none' : ''}`}>
-            {/* {loading && <Preloader />} */}
+            {loading && <Preloader />}
             {dataState.banners.length > 0 && dataState.banner_translates.length > 0 && (
                 <BannerSection
                     activeLocale={activeLocale}

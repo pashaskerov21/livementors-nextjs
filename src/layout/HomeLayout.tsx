@@ -82,7 +82,7 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
 
     return (
         <main className={loading ? 'd-none' : ''}>
-            {/* {loading && <Preloader/>} */}
+            {loading && <Preloader/>}
             {dataState.banners.length > 0 && dataState.banner_translates.length > 0 && (
                 <BannerSection
                     activeLocale={activeLocale}

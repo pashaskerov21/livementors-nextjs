@@ -1,12 +1,13 @@
 'use client'
 import React from 'react'
 
-const Preloader:React.FC = () => {
+const Preloader: React.FC = () => {
   return (
     <div className='preloader'>
-      <div className="logo">
+      {/* <div className="logo">
         <img src="/logo/header-logo.png" width={500} height={60} alt="" />
-      </div>
+      </div> */}
+      <div className="preloader-icon"></div>
     </div>
   )
 }

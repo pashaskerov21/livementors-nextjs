@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
 
     return (
         <header className={fixed ? 'fixed-top' : ''}>
-            {/* {loading && <Preloader/>} */}
+            {loading && <Preloader/>}
             <nav className="mobile-nav d-xl-none">
                 <div className="container">
                     <div className="row">

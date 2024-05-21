@@ -33,7 +33,7 @@ const EventHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ev
     }, [pathName]);
     return (
         <section className='event-home-section' style={{ backgroundImage: "url('/bg/event-bg.png')" }}>
-            {/* {loading && <Preloader/>} */}
+            {loading && <Preloader/>}
             <div className="container">
                 <SectionTitle
                     title={dictionary['events']}

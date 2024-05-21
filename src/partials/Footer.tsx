@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({ activeLocale, dictionary, dataState }) 
   }, [pathName]);
   return (
     <footer>
-      {/* {loading && <Preloader/>} */}
+      {loading && <Preloader/>}
       <div className="footer-top">
         <div className="container">
           <div className="row">
