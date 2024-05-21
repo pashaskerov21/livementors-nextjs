@@ -31,7 +31,7 @@ const ReportMainSection: React.FC<SectionProps> = ({ activeLocale, dictionary, r
     }, [pathName]);
     return (
         <section className='report-main-section'>
-            {loading && <Preloader/>}
+            {/* {loading && <Preloader/>} */}
             <div className="container">
                 <SectionTitle
                     title={dictionary['report']}

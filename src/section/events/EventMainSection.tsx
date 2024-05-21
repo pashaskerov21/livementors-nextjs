@@ -31,7 +31,7 @@ const EventMainSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ev
     }, [pathName]);
     return (
         <section className='event-section'>
-            {loading && <Preloader/>}
+            {/* {loading && <Preloader/>} */}
             <div className="container">
                 <SectionTitle
                     title={dictionary['events']}
