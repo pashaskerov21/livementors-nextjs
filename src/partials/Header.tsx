@@ -6,7 +6,7 @@ import { RootLayoutDataType } from '../types/data/type'
 import Link from 'next/link'
 import Image from 'next/image'
 import Site from '../class/Site'
-import { Language, SocialMedia } from '../components'
+import { Language, Preloader, SocialMedia } from '../components'
 
 type HeaderProps = {
     activeLocale: LocaleType,
@@ -38,11 +38,7 @@ const Header: React.FC<HeaderProps> = ({ activeLocale, dictionary, dataState, fi
 
     return (
         <header className={fixed ? 'fixed-top' : ''}>
-            {loading && (
-                <div className="preloader">
-                    <div className="preloader-icon"></div>
-                </div>
-            )}
+            {loading && <Preloader/>}
             <nav className="mobile-nav d-xl-none">
                 <div className="container">
                     <div className="row">

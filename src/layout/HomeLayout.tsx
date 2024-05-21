@@ -8,6 +8,7 @@ import { AboutDataType, HomeLayoutDataType, SettingDataType } from '../types/dat
 import Site from '../class/Site'
 import { AboutHomeSection, AboutHomeSection2, BannerSection, CommentSection, EventHomeSection, ImageHomeSection, MentorHomeSection, PartnerSection, ReportHomeSection, TimerSection, VideoHomeSection } from '../section'
 import Link from 'next/link'
+import { Preloader } from '../components'
 
 type LayoutProps = {
     activeLocale: LocaleType,
@@ -80,12 +81,8 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     }, [])
 
     return (
-        <main>
-            {loading && (
-                <div className="preloader">
-                    <div className="preloader-icon"></div>
-                </div>
-            )}
+        <main className={loading ? 'd-none' : ''}>
+            {loading && <Preloader/>}
             {dataState.banners.length > 0 && dataState.banner_translates.length > 0 && (
                 <BannerSection
                     activeLocale={activeLocale}

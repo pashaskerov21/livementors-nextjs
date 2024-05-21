@@ -1,6 +1,6 @@
 'use client'
 import Site from '@/src/class/Site'
-import { SectionTitle } from '@/src/components'
+import { Preloader, SectionTitle } from '@/src/components'
 import { EventDataType, EventTranslateDataType } from '@/src/types/data/type'
 import { LocaleType } from '@/src/types/general/type'
 import Image from 'next/image'
@@ -33,11 +33,7 @@ const EventHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ev
     }, [pathName]);
     return (
         <section className='event-home-section' style={{ backgroundImage: "url('/bg/event-bg.png')" }}>
-            {loading && (
-                <div className="preloader">
-                    <div className="preloader-icon"></div>
-                </div>
-            )}
+            {loading && <Preloader/>}
             <div className="container">
                 <SectionTitle
                     title={dictionary['events']}

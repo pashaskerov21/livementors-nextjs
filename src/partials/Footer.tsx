@@ -4,7 +4,7 @@ import { LocaleType } from '../types/general/type'
 import { RootLayoutDataType } from '../types/data/type'
 import Link from 'next/link'
 import Site from '../class/Site'
-import { SocialMedia } from '../components'
+import { Preloader, SocialMedia } from '../components'
 import { FaEnvelope, FaListCheck, FaLocationDot, FaPhone } from 'react-icons/fa6'
 import { Accordion, AccordionBody, AccordionItem } from 'react-bootstrap'
 import { usePathname } from 'next/navigation'
@@ -32,11 +32,7 @@ const Footer: React.FC<FooterProps> = ({ activeLocale, dictionary, dataState }) 
   }, [pathName]);
   return (
     <footer>
-      {loading && (
-        <div className="preloader">
-          <div className="preloader-icon"></div>
-        </div>
-      )}
+      {loading && <Preloader/>}
       <div className="footer-top">
         <div className="container">
           <div className="row">

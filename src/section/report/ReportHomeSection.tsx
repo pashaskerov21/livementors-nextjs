@@ -1,6 +1,6 @@
 'use client'
 import Site from '@/src/class/Site'
-import { SectionTitle } from '@/src/components'
+import { Preloader, SectionTitle } from '@/src/components'
 import { ReportDataType, ReportTranslateDataType } from '@/src/types/data/type'
 import { LocaleType } from '@/src/types/general/type'
 import Image from 'next/image'
@@ -33,11 +33,7 @@ const ReportHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, r
     }, [pathName]);
     return (
         <section className='report-home-section'>
-            {loading && (
-                <div className="preloader">
-                    <div className="preloader-icon"></div>
-                </div>
-            )}
+            {loading && <Preloader/>}
             <div className="container">
                 <SectionTitle
                     title={dictionary['report']}

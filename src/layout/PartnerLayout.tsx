@@ -7,6 +7,7 @@ import { updateLocaleSlug } from '../redux/actions/LocaleAction'
 import Site from '../class/Site'
 import { PartnerLayoutDataType } from '../types/data/type'
 import { BannerSection, PartnerSection } from '../section'
+import { Preloader } from '../components'
 
 type LayoutProps = {
     activeLocale: LocaleType,
@@ -49,12 +50,8 @@ const PartnerLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
     }, []);
 
     return (
-        <main className='primary-bg'>
-            {loading && (
-                <div className="preloader">
-                    <div className="preloader-icon"></div>
-                </div>
-            )}
+        <main className={`primary-bg ${loading ? 'd-none' : ''}`}>
+            {loading && <Preloader />}
             {dataState.banners.length > 0 && dataState.banner_translates.length > 0 && (
                 <BannerSection
                     activeLocale={activeLocale}

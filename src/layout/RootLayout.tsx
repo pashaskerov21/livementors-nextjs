@@ -18,6 +18,7 @@ import Footer from '../partials/Footer';
 import { FaArrowUp, FaCommentDots, FaEnvelope, FaRegComments, FaWhatsapp } from 'react-icons/fa6';
 import { FaTelegramPlane } from "react-icons/fa";
 import Link from 'next/link';
+import { Preloader } from '../components';
 
 type LayoutProps = {
     children: React.ReactNode,
@@ -76,11 +77,7 @@ const RootLayout: React.FC<LayoutProps> = ({ activeLocale, children, dictionary 
     const toggleToolbar = () => setShowToolbar(prev => !prev);
     return (
         <Provider store={store}>
-            {loading && (
-                <div className="preloader">
-                    <div className="preloader-icon"></div>
-                </div>
-            )}
+            {loading && <Preloader/>}
             {fixed && <button className='scroll-button' onClick={() => window.scrollTo(0, 0)} type='button'><FaArrowUp /></button>}
             <div className={`social-toolbar ${fixed ? 'fixed-true' : ''}`}>
                 {showToolbar && (

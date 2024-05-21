@@ -49,7 +49,7 @@ const ImageHomeSection: React.FC<SectionProps> = ({ activeLocale, dictionary, ga
                             <div className="gallery-image">
                                 <img src={apiURL + data.image} width={1000} height={1000} alt='gallery_image' />
                                 <div className="image-overlay">
-                                    <Link href={apiURL + data.image} data-fancybox='event-gallery' className='zoom-button'><FaMagnifyingGlass /></Link>
+                                    <Link href={apiURL + data.image} data-fancybox='gallery-home' className='zoom-button'><FaMagnifyingGlass /></Link>
                                 </div>
                             </div>
                         )}
