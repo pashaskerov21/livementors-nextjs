@@ -111,11 +111,10 @@ const HomeLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
                 </div>
             </div>
             {dataState.about_translates.length > 0 && (
-                <AboutHomeSection2
+                <AboutHomeSection
                     about={dataState.about}
                     about_translates={dataState.about_translates}
                     activeLocale={activeLocale}
-                    dictionary={dictionary}
                 />
             )}
             {dataState.events.length > 0 && dataState.event_translates.length > 0 && (
