@@ -128,7 +128,8 @@ input {
 main {
     width: 100%;
     min-height: 50vh;
-    &.primary-bg{
+
+    &.primary-bg {
         background-color: #F5F5F7;
     }
 }
@@ -355,7 +356,7 @@ header {
                 font-weight: 500;
 
                 &:hover,
-                &.active {
+                &.active, &:last-child {
                     color: $primary-color;
                 }
             }
@@ -566,10 +567,8 @@ footer {
 }
 
 
-
 /*====================COMPONENT==========================*/
 @import "components";
-
 
 
 /*============================BANNER===============================*/
@@ -631,7 +630,7 @@ footer {
             align-items: center;
             padding: 60px 0;
             display: none;
-            @media (min-width: 400px){
+            @media (min-width: 400px) {
                 display: flex;
             }
 
@@ -700,31 +699,34 @@ footer {
     background: linear-gradient(to right, $secondary-color 50%, $primary-color 50% 100%);
     padding: 20px 0;
 
-    @media (min-width: 992px){
+    @media (min-width: 992px) {
         background: linear-gradient(to right, $secondary-color 30%, $primary-color 30% 100%);
     }
-    .timer-inner{
+
+    .timer-inner {
         width: 100%;
         @include row-between;
-        .left{
+
+        .left {
             width: 50%;
             @include row-justify-end;
             padding-right: 20px;
-            @media (min-width: 768px){
+            @media (min-width: 768px) {
                 padding-right: 30px;
             }
-            @media (min-width: 992px){
+            @media (min-width: 992px) {
                 width: 30%;
             }
         }
-        .right{
+
+        .right {
             width: 50%;
             @include row-justify-start;
             padding-left: 20px;
-            @media (min-width: 768px){
+            @media (min-width: 768px) {
                 padding-left: 30px;
             }
-            @media (min-width: 992px){
+            @media (min-width: 992px) {
                 width: 70%;
             }
         }
@@ -770,7 +772,7 @@ footer {
         }
     }
 
-    .primary-button{
+    .primary-button {
         background-color: $secondary-color;
     }
 
@@ -894,29 +896,35 @@ footer {
         }
     }
 }
-.about-home-section-2{
+
+.about-home-section-2 {
     padding: 40px 0;
-    .row{
+
+    .row {
         width: 100%;
         margin: auto;
-        .col-12{
+
+        .col-12 {
             margin-bottom: 30px;
-            @media (min-width: 768px){
+            @media (min-width: 768px) {
                 margin-bottom: 0;
             }
         }
     }
-    .author-image{
+
+    .author-image {
         width: 100%;
         max-width: 300px;
         max-height: 300px;
-        img{
+
+        img {
             width: 100%;
             height: auto;
             max-height: 300px;
             object-fit: contain;
         }
     }
+
     .author-signature {
         widows: 150px;
         height: 75px;
@@ -927,13 +935,14 @@ footer {
             object-fit: contain;
         }
     }
+
     .text {
         width: 100%;
         font-weight: 500;
         color: $text-color-1 !important;
         background-color: transparent;
         font-size: 16px;
-        @media (min-width: 1200px){
+        @media (min-width: 1200px) {
             font-size: 18px;
         }
     }
@@ -942,37 +951,43 @@ footer {
         color: $text-color-1 !important;
         background-color: transparent;
     }
-    .about-button{
+
+    .about-button {
         background-color: $primary-color;
         color: #fff;
         padding: 12px;
         font-weight: 600;
-        &:hover{
+
+        &:hover {
             background-color: $secondary-color;
         }
     }
-    .author-title{
+
+    .author-title {
         font-weight: 600;
-        @media (min-width: 768px){
+        @media (min-width: 768px) {
             text-align: right;
         }
     }
-    .content{
+
+    .content {
         width: 100%;
         height: 100%;
         @include column-between;
     }
-    .content-bottom{
+
+    .content-bottom {
         width: 100%;
         @include column-align-start;
         gap: 20px;
         margin-top: 20px;
-       
-        @media (min-width: 768px){
+
+        @media (min-width: 768px) {
             @include row-between;
         }
-        .bottom-right{
-            @media (min-width: 992px){
+
+        .bottom-right {
+            @media (min-width: 992px) {
                 @include row-justify-end;
                 gap: 20px;
             }
@@ -1049,7 +1064,8 @@ footer {
         ul {
             list-style: '- ';
         }
-        a{
+
+        a {
             color: $primary-color !important;
             text-decoration: underline;
             font-weight: 600;
@@ -1060,7 +1076,8 @@ footer {
         color: $text-color-1 !important;
         background-color: transparent !important;
         font-size: 14px;
-        a{
+
+        a {
             color: $primary-color !important;
             text-decoration: underline;
         }
@@ -1140,7 +1157,8 @@ footer {
                 height: 100%;
                 object-fit: cover;
             }
-            .image-overlay{
+
+            .image-overlay {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -1150,7 +1168,8 @@ footer {
                 @include row-center;
                 opacity: 0;
                 transition: all 0.2s;
-                .zoom-button{
+
+                .zoom-button {
                     width: 60px;
                     height: 60px;
                     background-color: $white-6;
@@ -1161,10 +1180,12 @@ footer {
                     transform: scale(0);
                 }
             }
-            &:hover{
-                .image-overlay{
+
+            &:hover {
+                .image-overlay {
                     opacity: 1;
-                    .zoom-button{
+
+                    .zoom-button {
                         transform: scale(1);
                     }
                 }
@@ -1220,6 +1241,12 @@ footer {
 /*====================MENTOR HOME SECTION======================*/
 .mentors-home-section {
     background-color: #F5F5F7;
+
+    .mentor-swiper {
+        .swiper-wrapper {
+            padding-bottom: 50px;
+        }
+    }
 
     @media(min-width: 768px) {
         padding: 40px 0;
@@ -1597,17 +1624,20 @@ footer {
     @media(min-width: 768px) {
         padding: 60px 0;
     }
-    .partner-wrapper{
+
+    .partner-wrapper {
         width: 100%;
         @include row-center;
         flex-wrap: wrap;
         gap: 10px;
     }
-    .partner-logo{
+
+    .partner-logo {
         @include row-center;
         width: 140px;
         height: 60px;
-        img{
+
+        img {
             width: 140px;
             height: 60px;
             object-fit: contain;
@@ -1616,28 +1646,34 @@ footer {
 }
 
 /*====================HOME IMAGE GALLERY SECTION======================*/
-.gallery-images-section{
+.gallery-images-section {
     padding: 0;
     margin: 0;
-    .gallery-image{
+
+    .gallery-image {
         height: 250px !important;
-        img{
+
+        img {
             height: 250px !important;
             object-fit: cover;
         }
     }
 }
+
 /*==========================CONTACT SECTION==========================*/
-.contact-section{
+.contact-section {
     background-color: #F5F5F7;
     padding: 40px 0;
     min-height: 70vh;
-    .col-12{
+
+    .col-12 {
         margin-bottom: 40px;
-        &:last-child{
+
+        &:last-child {
             margin-bottom: 0;
         }
-        @media (min-width: 992px){
+
+        @media (min-width: 992px) {
             margin-bottom: 0;
         }
     }
@@ -1645,32 +1681,39 @@ footer {
     @media(min-width: 768px) {
         padding: 60px 0;
     }
-    .contact-form{
+
+    .contact-form {
         width: 100%;
         @include column-center;
         gap: 30px;
-        .title{
+
+        .title {
             width: 100%;
             font-weight: 600;
         }
-        .form-floating{
+
+        .form-floating {
             width: 100%;
+
             input.form-control,
-            textarea.form-control{
+            textarea.form-control {
                 border-radius: 0;
                 border: none;
                 box-shadow: none;
                 color: $text-color-1;
-                &:focus{
+
+                &:focus {
                     box-shadow: none;
                 }
             }
-            textarea.form-control{
+
+            textarea.form-control {
                 min-height: 180px;
                 resize: none;
             }
         }
-        .submit-button{
+
+        .submit-button {
             width: 100%;
             max-width: 250px;
             padding: 15px;
@@ -1678,14 +1721,16 @@ footer {
             @include row-center;
             letter-spacing: 1px;
             color: $secondary-color;
-            &:hover{
+
+            &:hover {
                 background-color: $primary-color;
                 border-color: $primary-color;
                 color: #fff;
             }
         }
     }
-    .contact-info-wrapper{
+
+    .contact-info-wrapper {
         width: 100%;
         height: 100%;
         padding: 60px 30px;
@@ -1693,30 +1738,34 @@ footer {
         @include column-center;
         gap: 60px;
         border-top: 8px solid $primary-color;
-        @media (min-width: 992px){
+        @media (min-width: 992px) {
             @include row-between;
             gap: 30px;
         }
-        .contact-item{
+
+        .contact-item {
             width: 100%;
             max-width: 350px;
             @include column-center;
             gap: 30px;
             text-align: center;
             color: #fff;
-            .icon{
+
+            .icon {
                 font-size: 35px;
-                @media (min-width: 576px){
+                @media (min-width: 576px) {
                     font-size: 45px;
                 }
             }
-            .value{
+
+            .value {
                 font-size: 18px;
                 line-height: 32px;
                 font-weight: 600;
             }
         }
     }
+
     .social-media {
         @include row-center;
         gap: 10px;
@@ -1737,7 +1786,7 @@ footer {
 }
 
 /*======================PAGE 404 SECTION====================*/
-.page-404-section{
+.page-404-section {
     width: 100%;
     background-color: #F5F5F7;
     min-height: 70vh;
@@ -1746,34 +1795,38 @@ footer {
     @media(min-width: 768px) {
         padding: 60px 0;
     }
-    .wrapper-404{
+
+    .wrapper-404 {
         width: 100%;
         @include column-center;
         gap: 30px;
-        .error-code{
+
+        .error-code {
             font-size: 80px;
             line-height: 80px;
             color: $secondary-color;
             font-weight: 900;
-            @media (min-width: 576px){
+            @media (min-width: 576px) {
                 font-size: 100px;
                 line-height: 100px;
             }
-            @media (min-width: 768px){
+            @media (min-width: 768px) {
                 font-size: 140px;
                 line-height: 140px;
             }
-            @media (min-width: 1200px){
+            @media (min-width: 1200px) {
                 font-size: 180px;
                 line-height: 180px;
             }
         }
-        .error-text{
+
+        .error-text {
             font-size: 22px;
             letter-spacing: 1px;
             font-weight: 500;
         }
-        a{
+
+        a {
             width: 100%;
             max-width: 250px;
             padding: 15px;
@@ -1781,7 +1834,8 @@ footer {
             @include row-center;
             letter-spacing: 1px;
             color: $secondary-color;
-            &:hover{
+
+            &:hover {
                 background-color: $primary-color;
                 border-color: $primary-color;
                 color: #fff;

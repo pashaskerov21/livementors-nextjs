@@ -38,8 +38,15 @@ class Site {
     }
     public home = async () => {
         try {
-            const response = await axios.get(this.api.home, this.axiosConfig)
-            return response.data;
+            // const response = await axios.get(this.api.home, this.axiosConfig)
+            // return response.data;
+            const homeResponse = await axios.get(this.api.home, this.axiosConfig);
+            const mentorsResponse = await this.mentors();
+
+            return {
+                ...homeResponse.data,
+                mentors: mentorsResponse.mentors
+            };
         } catch (error: any) {
             console.log(error)
         }
