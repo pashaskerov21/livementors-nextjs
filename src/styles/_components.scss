@@ -193,7 +193,8 @@
         gap: 15px;
         background-color: #fff;
         padding: 20px;
-        max-height: 177px;
+        min-height: 177px;
+        height: 180px;
 
         .card-title {
             font-weight: 600;
