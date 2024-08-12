@@ -689,6 +689,7 @@ footer .footer-bottom .copyright a {
   gap: 15px;
   background-color: #fff;
   padding: 20px;
+  max-height: 177px;
 }
 .primary-card .card-body .card-title {
   font-weight: 600;
@@ -2459,5 +2460,3 @@ footer .footer-bottom .copyright a {
   border-color: #A4D100;
   color: #fff;
 }
-
-/*# sourceMappingURL=index.css.map */
