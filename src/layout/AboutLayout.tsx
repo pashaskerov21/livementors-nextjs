@@ -77,6 +77,7 @@ const AboutLayout: React.FC<LayoutProps> = ({ activeLocale, dictionary }) => {
       <AboutMainSection
         activeLocale={activeLocale}
         dataState={dataState}
+        about_translates={dataState.about_translates}
       />
       {dataState.commites.length > 0 && dataState.commite_translates.length > 0 && (
         <CommiteSection

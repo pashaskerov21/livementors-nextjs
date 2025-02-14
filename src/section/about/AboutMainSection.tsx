@@ -1,6 +1,6 @@
 'use client'
 import Site from '@/src/class/Site'
-import {AboutLayoutDataType} from '@/src/types/data/type'
+import {AboutLayoutDataType, AboutTranslateDataType} from '@/src/types/data/type'
 import {LocaleType} from '@/src/types/general/type'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,11 +10,13 @@ import {FaMagnifyingGlass} from 'react-icons/fa6'
 type SectionProps = {
     activeLocale: LocaleType,
     dataState: AboutLayoutDataType,
+    about_translates: AboutTranslateDataType[]
 }
 
-const AboutMainSection: React.FC<SectionProps> = ({activeLocale, dataState}) => {
+const AboutMainSection: React.FC<SectionProps> = ({activeLocale, dataState, about_translates}) => {
     const apiURL = process.env.API_URL;
     const site = new Site();
+    console.log(dataState);
     return (
         <section className='about-main-section'>
             <div className="container">
@@ -40,7 +42,7 @@ const AboutMainSection: React.FC<SectionProps> = ({activeLocale, dataState}) => 
                         {dataState.about_gallery.map((data) => (
                             data.image && (
                                 <>
-                                    <div className="col-12 col-lg-4 mb-4 mx-lg-0" key={data.id}>
+                                    <div className="col-12 col-lg-3 mb-4 mb-lg-0" key={data.id}>
                                         <Link href={apiURL + data.image} data-fancybox='about-gallery' className='gallery-img'>
                                             <img src={apiURL + data.image} width={1000} height={1000} alt='gallery-img object-fit-cover'/>
                                             <div className="image-overlay">
@@ -48,14 +50,10 @@ const AboutMainSection: React.FC<SectionProps> = ({activeLocale, dataState}) => 
                                             </div>
                                         </Link>
                                     </div>
-                                    <div className="col-12 col-lg-8">
-                                        Lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                        magna aliqua. lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                        magna aliqua. lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                        magna aliqua. lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                        magna aliqua. lorem ipsum dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                        magna aliqua.
-                                    </div>
+                                    <div
+                                        className="col-12 col-lg-8"
+                                        dangerouslySetInnerHTML={{ __html: site.getAboutTranslate(1, "home_text", activeLocale, about_translates) }}
+                                    ></div>
                                 </>
                             )
                         ))}
