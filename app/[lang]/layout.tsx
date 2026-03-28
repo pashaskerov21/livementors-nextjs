@@ -23,7 +23,7 @@ export async function generateMetadata({ params: { lang } }: { params: { lang: L
     const footerLogo = response.footer_logo ? apiURL + response.footer_logo : '/logo/footer-logo.png';
 
     return {
-      metadataBase: new URL(`${apiURL}`),
+      metadataBase: new URL(`${process.env.SITE_URL}`),
       title: response.title ?? 'Livementors',
       description: response.description ?? 'Livementors',
       keywords: response.keywords ?? 'Livementors',

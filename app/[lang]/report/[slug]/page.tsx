@@ -6,7 +6,6 @@ import { LocaleType } from "@/src/types/general/type";
 import { MetaRequestDataType } from "@/src/types/request/type";
 import { Metadata } from "next";
 
-const apiURL = process.env.API_URL;
 const site = new Site();
 
 export async function generateMetadata({ params: { lang, slug } }: { params: { lang: LocaleType, slug: string } }): Promise<Metadata> {
@@ -20,7 +19,6 @@ export async function generateMetadata({ params: { lang, slug } }: { params: { l
         const response: MetaDataType = await site.meta(data);
 
         return {
-            metadataBase: new URL(`${apiURL}`),
             title: response.title ? `Livementors | ${response.title}` : 'Livementors',
             description: response.description ?? 'Livementors',
             keywords: response.keywords ?? 'Livementors',

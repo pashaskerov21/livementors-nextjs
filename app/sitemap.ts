@@ -15,7 +15,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         url: `${process.env.SITE_URL}/${data.lang}/events/${data.slug}`,
         lastModified: new Date(),
     }));
-    const reportSiteMap: MetadataRoute.Sitemap = response.event_translates.map((data) => ({
+    const reportSiteMap: MetadataRoute.Sitemap = response.report_translates.map((data) => ({
         url: `${process.env.SITE_URL}/${data.lang}/report/${data.slug}`,
         lastModified: new Date(),
     }));
@@ -51,7 +51,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             lastModified: new Date(),
         })),
         ...i18n.locales.map(locale => ({
-            url: `${process.env.SITE_URL}/${locale}/404`,
+            url: `${process.env.SITE_URL}/${locale}/video-gallery`,
             lastModified: new Date(),
         })),
     ]
